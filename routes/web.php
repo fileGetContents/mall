@@ -13,16 +13,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('user', 'UserController@index');
-
 Route::group(['namespace' => 'Web'], function () {
     Route::get('user/registered', 'UserController@registered');
+    Route::get('user', 'UserController@index');
+    Route::get('personal/message', 'PersonalController@message');
 });
-
-
-Route::group(['namespace' => 'Api', 'prefix' => 'Api'], function () {
-    Route::any('Assit/getCaptcha', 'AssitController@getCaptcha');
-    Route::any('Assit/valCaptcha', 'AssitController@valCaptcha');
+Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
+    Route::any('assit/getCaptcha', 'AssitController@getCaptcha');
+    Route::any('assit/valCaptcha', 'AssitController@valCaptcha');
+    Route::any('assit/sendSMS', 'AssitController@sendSMS');
+    Route::any('assit/valSMS', 'AssitController@valSMS');
 
     Route::any('user/registered', 'UserController@registered');
+    Route::any('user/hasTelephone', 'UserController@hasTelephone');
+
+    Route::any('personal/getMessage/{id?}', 'PersonalController@getUserMessage');
+
+
 });

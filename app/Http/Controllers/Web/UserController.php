@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
+
 class UserController extends Controller
 {
 
@@ -12,11 +13,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = Models\User::all();
-        //     dump($user);
-        foreach ($user as $value) {
-            echo $value->user_password . '<br/>';
-        }
+        dump(preg_match('/^1[34578]\d{9}$/', '1828019533'));
     }
 
     /**

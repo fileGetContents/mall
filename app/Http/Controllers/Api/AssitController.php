@@ -26,14 +26,13 @@ class AssitController extends Controller
      */
     public function valCaptcha(Request $request)
     {
-
         if ($request->session()->has('captcha')) {
-            if ($request->input('captcha') == session('captcha')) {
-                return true;
+            if (strtolower($request->input('captcha')) == strtolower(session('captcha'))) {
+                return 'true';
             }
-            return false;
+            return 'false';
         }
-        return false;
+        return 'false';
     }
 
 
@@ -64,9 +63,9 @@ class AssitController extends Controller
             'sms' => 'required'
         ]);
         if ($request->input('telephone') == session('telephone') && session('sms') == $request->input('sms')) {
-            return true;
+            return 'true';
         } else {
-            return false;
+            return 'false';
         };
     }
 

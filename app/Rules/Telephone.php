@@ -19,13 +19,13 @@ class Telephone implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param  string $attribute
+     * @param  mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/^1[34578]\d{9}$/',$value);
+        return preg_match('/^1[34578]\d{9}$/', $value);
     }
 
     /**

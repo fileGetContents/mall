@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -84,21 +83,24 @@
             <span></span>
         </div>
         <div class="psw psw2">
-            <p class="psw-p1">手机号/邮箱</p>
+            <p class="psw-p1">手机号</p>
             <input type="text" name="telephone" id="telephone" placeholder="请输入手机/邮箱验证码"/>
-            <button>获取短信验证码</button>
+            <span></span>
+            <button id="sms">获取短信验证码</button>
         </div>
         <div class="psw psw3">
             <p class="psw-p1">验证码</p>
             <input type="text" name="code" id="code" placeholder="请输入手机/邮箱验证码"/>
+            <span></span>
         </div>
         <div class="psw psw3">
             <p class="psw-p1">验证码</p>
             <input type="text" name="captcha" id="captcha" placeholder="请输入验证码"/>
+            <span></span>
         </div>
         <div class="yanzhentu">
             <div class="yz-tu f-l">
-                <img id="imgCap" src="{{URL('Assit/getCaptcha')}}"/>
+                <img id="imgCap" src="{{URL('api/assit/getCaptcha')}}"/>
             </div>
             <p class="f-l">看不清？<a id="upCap" href="javascript:void(0)">换张图</a></p>
             <div style="clear:both;"></div>
@@ -107,7 +109,7 @@
             <input type="checkbox" name="hobby"/>
             <p>我有阅读并同意<span>《宅客微购网站服务协议》</span></p>
         </div>
-        <button class="psw-btn">立即注册</button>
+        <button type="submit" class="psw-btn">立即注册</button>
         <p class="sign-in">已有账号？请<a href="#">登录</a></p>
     </div>
 </form>
@@ -186,9 +188,51 @@
 <script type="text/javascript">
     $(function () {
         $('#upCap').click(function () {
-            $('#imgCap').attr('src', '{{URL('Assit/getCaptcha')}}?id=' + Math.floor(Math.random() * 10000))
+            $('#imgCap').attr('src', '{{URL('api/assit/getCaptcha')}}?id=' + Math.floor(Math.random() * 10000))
         });
+        $('#sms').click(function () {
+            if (!/^1[34578]\d{9}$/.test($('#telephone').val())) {
+                alert('请输入11位正确手机号码');
+                return false;
+            }
+            // 开始运行倒计时程序
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: {'telephone': $('#telephone').val()},
+                url: '{{URL('api/assit/sendSMS')}}',
+                success: function (data) {
+                },
+                error: function () {
+                }
+            })
+        });
+
         $('#form_reg').validate({
+            submitHandler: function () {
+                $.ajax({
+                    url: '{{URL('api/user/registered')}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        'name': $('#name').val(),
+                        'password': $('#password').val(),
+                        'bpasswored': $('#bpasswored').val(),
+                        'telephone': $('#telephone').val(),
+                        'code': $('#code').val(),
+                        'captcha': $('#captcha').val()
+                    },
+                    success: function (data) {
+                        if (data) {
+                            window.location.href = ''
+                        }
+                    },
+                    error: function () {
+
+                    }
+
+                })
+            },
             errorPlacement: function (error, element) {
                 $(element).next().append(error);
             },
@@ -209,8 +253,9 @@
                     required: true,
                     telephone: true,
                     remote: {
-                        url: '',
+                        url: '{{URL('api/user/hasTelephone')}}',
                         type: 'post',
+                        dataType: 'json',
                         data: {
                             telephone: function () {
                                 return $('#telephone').val()
@@ -218,9 +263,34 @@
                         },
                     }
                 },
+                captcha: {
+                    required: true,
+                    remote: {
+                        url: '{{URL('api/assit/valCaptcha')}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            telephone: function () {
+                                return $('#captcha').val()
+                            }
+                        },
+                    }
+                },
                 code: {
                     required: true,
-
+                    remote: {
+                        url: '{{URL('api/assit/valSMS')}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            telephone: function () {
+                                return $('#telephone').val()
+                            },
+                            sms: function () {
+                                return $('#code').val()
+                            }
+                        },
+                    }
                 }
             },
             messages: {
@@ -235,7 +305,16 @@
                     equalTo: '俩次密码不匹配'
                 },
                 telephone: {
-                    required: '请输入电话',
+                    required: '请输入电话号码',
+                    remote: '已经注册过了哦！'
+                },
+                captcha: {
+                    required: '请输入图像验证码',
+                    remote: '图像验证码不正确'
+                },
+                code: {
+                    required: '请输入短信验证码',
+                    remote: '短信验证码错误'
                 }
             }
         })
