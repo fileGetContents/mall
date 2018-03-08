@@ -6,9 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/shopping-mall-index.css')}}"/>
 </head>
-
 <body>
-
 <!--top 开始-->
 <div class="top">
     <div class="top-con w1200">
@@ -164,7 +162,6 @@
         <div style="clear:both;"></div>
     </div>
 </div>
-
 <!--底部 版权-->
 <div class="footer w1200">
     <p>
@@ -185,6 +182,7 @@
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/zhonglin.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/rules.js')}}"></script>
 <script type="text/javascript">
     $(function () {
         $('#upCap').click(function () {
@@ -207,7 +205,6 @@
                 }
             })
         });
-
         $('#form_reg').validate({
             submitHandler: function () {
                 $.ajax({
@@ -289,7 +286,7 @@
                             sms: function () {
                                 return $('#code').val()
                             }
-                        },
+                        }
                     }
                 }
             },
@@ -319,21 +316,6 @@
             }
         })
     });
-
-    jQuery.validator.addMethod('password', function (value, element) {
-        var tel = /(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{6,16}/;
-        return this.optional(element) || (tel.test(value));
-    }, '密码由6-16的字母、数字组成');
-    jQuery.validator.addMethod('telephone', function (value, element) {
-        var tel = /^1[34578]\d{9}$/;
-        return this.optional(element) || (tel.test(value));
-    }, '请输入11位正确手机号码');
-    jQuery.validator.addMethod('username', function (value, element) {
-        var tel = /[A-Za-z0-9]{6,20}$/;
-        return this.optional(element) || (tel.test(value));
-    }, '用户名是有6-20字母加数字组成');
-
-
 </script>
 </body>
 </html>

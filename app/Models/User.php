@@ -20,4 +20,10 @@ class User extends Model
     {
         return decrypt($value);
     }
+
+    public static function field()
+    {
+        return ['user_id', 'user_nickname', 'user_telephone', 'user_time', 'user_password'];
+    }
+
 }

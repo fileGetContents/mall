@@ -18,4 +18,6 @@ class PersonalController extends Controller
             return collect(['message' => 'true', 'data' => $message])->toJson();
         }
     }
+
+
 }

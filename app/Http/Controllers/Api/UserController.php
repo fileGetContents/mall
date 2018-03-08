@@ -67,5 +67,47 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * 检查是否是注册过的
+     * @param Request $request
+     * @return string
+     */
+    public function loginTelephone(Request $request)
+    {
+        $this->validate($request, [
+            'telephone' => ['required', new Rules\Telephone()]
+        ]);
+        $user = Models\User::where('user_telephone', $request->input('telephone'))->first();
+        if (is_null($user)) {
+            return 'false';
+        } else {
+            return 'true';
+        }
+    }
+
+    /**
+     * 用户登录
+     * @param Request $request
+     * @return string
+     */
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'telephone' => ['required', new Rules\Telephone()],
+            'password' => ['required', new Rules\Password()]
+        ]);
+        $user = Models\User::where('user_telephone', $request->input('telephone'))->first();
+        if (is_null($user)) {
+            return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
+        } else {
+            if ($user->user_password == $request->input('password')) {
+                session(['user_id' => $user->user_id]);
+                return collect(['message' => 'true', 'data' => ''])->toJson();
+            } else {
+                return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
+            }
+        }
+    }
+
 
 }

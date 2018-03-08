@@ -16,7 +16,11 @@ Route::get('/', function () {
 Route::group(['namespace' => 'Web'], function () {
     Route::get('user/registered', 'UserController@registered');
     Route::get('user', 'UserController@index');
+    Route::get('user/login', 'UserController@login');
+
     Route::get('personal/message', 'PersonalController@message');
+
+    Route::get('good/detailed/{id?}', 'GoodController@detailed');
 });
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('assit/getCaptcha', 'AssitController@getCaptcha');
@@ -26,8 +30,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
     Route::any('user/registered', 'UserController@registered');
     Route::any('user/hasTelephone', 'UserController@hasTelephone');
+    Route::any('user/loginTelephone', 'UserController@loginTelephone');
+    Route::any('user/login', 'UserController@login');
 
     Route::any('personal/getMessage/{id?}', 'PersonalController@getUserMessage');
-
-
 });
