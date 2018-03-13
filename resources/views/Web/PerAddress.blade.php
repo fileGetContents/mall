@@ -1,13 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>商品详情</title>
+    <title>管理收货地址</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/shopping-mall-index.css')}}"/>
 </head>
-
-<body style="position:relative;">
+<body>
 <!--top 开始-->
 <div class="top">
     <div class="top-con w1200">
@@ -19,7 +19,7 @@
             <li class="erweima">
                 <a href="#">扫描二维码</a>
                 <div class="ewm-tu">
-                    <a href="#"><img src="{{asset('')}}images/erweima-tu.jpg"/></a>
+                    <a href="#"><img src="images/erweima-tu.jpg"/></a>
                 </div>
             </li>
             <div style="clear:both;"></div>
@@ -31,15 +31,7 @@
 <!--logo search 开始-->
 <div class="hd-info1 w1200">
     <div class="logo f-l">
-        <h1><a href="#" title="中林网站"><img src="{{asset('')}}images/logo.jpg"/></a></h1>
-    </div>
-    <div class="dianji f-r">
-        <div class="btn1">
-            <button class="btn1-l">注册</button>
-            <button class="btn1-r">登录</button>
-            <div style="clear:both;"></div>
-        </div>
-        <button class="btn2">商家入口 ></button>
+        <h1><a href="#" title="中林网站"><img src="images/logo.jpg"/></a></h1>
     </div>
     <div class="search f-r">
         <ul class="sp">
@@ -69,128 +61,6 @@
         </ul>
     </div>
     <div style="clear:both;"></div>
-</div>
-
-<!--切换城市-->
-<div class="switch-city w1200">
-    <a href="#" class="dianji-qh">切换城市</a>
-    <span class="dqm">重庆市</span>
-    <div class="select-city">
-        <div class="sl-city-top">
-            <p class="f-l">切换城市</p>
-            <a class="close-select-city f-r" href="#">
-                <img src="{{asset('')}}images/close-select-city.gif"/>
-            </a>
-        </div>
-        <div class="sl-city-con">
-            <p>西北</p>
-            <dl>
-                <dt>重庆市</dt>
-                <dd>
-                    <a href="#">长寿区</a>
-                    <a href="#">巴南区</a>
-                    <a href="#">南岸区</a>
-                    <a href="#">九龙坡区</a>
-                    <a href="#">沙坪坝区</a>
-                    <a href="#">北碚</a>
-                    <a href="#">江北区</a>
-                    <a href="#">渝北区</a>
-                    <a href="#">大渡口区</a>
-                    <a href="#">渝中区</a>
-                    <a href="#">万州</a>
-                    <a href="#">武隆</a>
-                    <a href="#">晏家</a>
-                    <a href="#">长寿湖</a>
-                    <a href="#">云集</a>
-                    <a href="#">华中</a>
-                    <a href="#">林封</a>
-                    <a href="#">双龙</a>
-                    <a href="#">石回</a>
-                    <a href="#">龙凤呈祥</a>
-                    <a href="#">朝天门</a>
-                    <a href="#">中华</a>
-                    <a href="#">玉溪</a>
-                    <a href="#">云烟</a>
-                    <a href="#">红塔山</a>
-                    <a href="#">真龙</a>
-                    <a href="#">天子</a>
-                    <a href="#">娇子</a>
-                </dd>
-
-                <div style="clear:both;"></div>
-            </dl>
-            <dl>
-                <dt>新疆</dt>
-                <dd>
-                    <a href="#">齐乌鲁木</a>
-                    <a href="#">昌吉</a>
-                    <a href="#">巴音</a>
-                    <a href="#">郭楞</a>
-                    <a href="#">伊犁</a>
-                    <a href="#">阿克苏</a>
-                    <a href="#">喀什</a>
-                    <a href="#">哈密</a>
-                    <a href="#">克拉玛依</a>
-                    <a href="#">博尔塔拉</a>
-                    <a href="#">吐鲁番</a>
-                    <a href="#">和田</a>
-                    <a href="#">石河子</a>
-                    <a href="#">克孜勒苏</a>
-                    <a href="#">阿拉尔</a>
-                    <a href="#">五家渠</a>
-                    <a href="#">图木舒克</a>
-                    <a href="#">库尔勒</a>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl>
-                <dt>甘肃</dt>
-                <dd>
-                    <a href="#">兰州</a>
-                    <a href="#">天水</a>
-                    <a href="#">巴音</a>
-                    <a href="#">白银</a>
-                    <a href="#">庆阳</a>
-                    <a href="#">平凉</a>
-                    <a href="#">酒泉</a>
-                    <a href="#">张掖</a>
-                    <a href="#">武威</a>
-                    <a href="#">定西</a>
-                    <a href="#">金昌</a>
-                    <a href="#">陇南</a>
-                    <a href="#">临夏</a>
-                    <a href="#">嘉峪关</a>
-                    <a href="#">甘南</a>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl>
-                <dt>宁夏</dt>
-                <dd>
-                    <a href="#">银川</a>
-                    <a href="#">吴忠</a>
-                    <a href="#">石嘴山</a>
-                    <a href="#">中卫</a>
-                    <a href="#">固原</a>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl>
-                <dt>青海</dt>
-                <dd>
-                    <a href="#">西宁</a>
-                    <a href="#">海西</a>
-                    <a href="#">海北</a>
-                    <a href="#">果洛</a>
-                    <a href="#">海东</a>
-                    <a href="#">黄南</a>
-                    <a href="#">玉树</a>
-                    <a href="#">海南</a>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-        </div>
-    </div>
 </div>
 
 <!--nav 开始-->
@@ -675,399 +545,108 @@
 </div>
 
 <!--内容开始-->
-<div class="details w1200">
-    <div class="deta-info1">
-        <div class="dt-if1-l f-l">
-            <div class="dt-if1-datu">
-                <ul qie-da="">
-                    @foreach($good->good_images as  $v)
-                        <li><a href="javascript:void(0)"><img src="{{$v}}"/></a></li>
-                    @endforeach
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda2.gif"/></a></li>--}}
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda3.gif"/></a></li>--}}
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda4.gif"/></a></li>--}}
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda5.gif"/></a></li>--}}
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda6.gif"/></a></li>--}}
-                    {{--<li><a href="#"><img src="{{asset('')}}images/dt-if1-l-tuda7.gif"/></a></li>--}}
-                    <div style="clear:both;"></div>
-                </ul>
-            </div>
-            <div class="dt-if1-qietu">
-                <a class="dt-qie-left f-l" href="JavaScript:;">
-                    <img src="{{asset('')}}images/dt-if1-qietu-left.gif"/>
-                </a>
-                <div class="dt-qie-con f-l">
-                    <ul qie-xiao="">
-                        @foreach($good->good_images as $key=> $v)
-                            <li class="@if($key==0)  current @endif">
-                                <a href="javascript:void(0)"><img src="{{asset('')}}images/dt-if1-qietu1.gif"/></a>
-                            </li>
-                        @endforeach
-                        <div style="clear:both;"></div>
-                    </ul>
-                </div>
-                <a class="dt-qie-right f-r" href="JavaScript:;"><img src="{{asset('')}}images/dt-if1-qietu-right.gif"/></a>
-            </div>
-            <div class="dt-if1-fx">
-                <span>商品编码:{{$good->good_coding}}</span>
-                <p>分享到：
-                    <a href="#"><img src="{{asset('')}}images/dt-xl.gif"/></a>
-                    <a href="#"><img src="{{asset('')}}images/dt-kj.gif"/></a>
-                    <a href="#"><img src="{{asset('')}}images/dt-wx.gif"/></a>
-                </p>
-            </div>
+<div class="personal w1200">
+    <div class="personal-left f-l">
+        <div class="personal-l-tit">
+            <h3>个人中心</h3>
         </div>
-
-        <div class="dt-if1-m f-l">
-            <div class="dt-ifm-hd">
-                <h3><a href="#">{{$good->good_name}}</a></h3>
-                <p>{{$good->good_introduce}}</p>
-            </div>
-            <div class="dt-ifm-gojia">
-                <dl>
-                    <dt>宅购价</dt>
-                    <dd>
-                        <p class="p1">
-                            <span class="sp1">¥{{$good->good_preprice}}</span><span
-                                    class="sp2">{{$good->good_oriprice}}</span>
-                        </p>
-                        <p class="p2">
-                            <span class="sp1"><img src="{{asset('')}}images/dt-ifm-sp1-img.gif"/>5分</span><span
-                                    class="sp2">共有 2 条评价</span>
-                        </p>
-                    </dd>
-                    t
-                    <div style="clear:both;"></div>
-                </dl>
-            </div>
-            <dl class="dt-ifm-spot">
-                <dt>活动</dt>
-                <dd>
-                    <P><span>包邮</span>本店满50.00元免运费</P>
-                    <P><span>满赠</span>本店满500.00元赠300.00元礼品（随机赠送）</P>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl class="dt-ifm-box1">
-                <dt>送时</dt>
-                <dd>
-                    <select>
-                        <option>请选择配送日期</option>
-                        <option>2015-8-31</option>
-                        <option>2015-8-32</option>
-                    </select>
-                    <select>
-                        <option>请选择配送时段</option>
-                        <option>上午</option>
-                        <option>下午</option>
-                    </select>
-                    <p>每天会有4个时间段统一配送，还有一个加急送，如果提前两天预定，还可以享受折扣哦！</p>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl class="dt-ifm-box2">
-                <dt>送至</dt>
-                <dd>
-                    <select>
-                        <option>新疆 乌鲁木齐</option>
-                        <option>新疆 乌鲁</option>
-                        <option>新疆 木齐</option>
-                    </select>
-                    <span>请选择配送地址</span>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <dl class="dt-ifm-box3">
-                <dt>数量</dt>
-                <dd>
-                    <a class="box3-left" href="JavaScript:;">-</a>
-                    <input type="text" value="1">
-                    <a class="box3-right" href="JavaScript:;">+</a>
-                    <span>仓库剩余份数:{{$good->good_num}}</span>
-                </dd>
-                <div style="clear:both;"></div>
-            </dl>
-            <div class="dt-ifm-box4">
-                <button class="btn1">立即购买</button>
-                <button class="btn2">加入购物车</button>
-                <button id="coll" good_id="{{$good->good_id}}" class="btn3">收藏</button>
-            </div>
-        </div>
-
-        <div class="dt-if1-r f-r">
-            <div class="dt-ifr-hd">
-                <div class="dt-ifr-tit">
-                    <h3>三只松鼠百货专营店</h3>
-                </div>
-                <ul class="dt-ifr-ul1">
-                    <li>
-                        <p class="p1">4.61 ↑</p>
-                        <p class="p2">商品评分</p>
-                    </li>
-                    <li>
-                        <p class="p1">4.61 ↑</p>
-                        <p class="p2">商品评分</p>
-                    </li>
-                    <li>
-                        <p class="p1">4.61 ↑</p>
-                        <p class="p2">商品评分</p>
-                    </li>
-                    <div style="clear:both;"></div>
-                </ul>
-                <div class="dt-ifr-tel">
-                    <p>地址：重庆渝北区高新园昆仑大道60号　　　龙头寺火车站旁</p>
-                    <p>TEL：18616854445</p>
-                </div>
-                <button class="dt-r-btn1">进入店铺</button>
-                <button class="dt-r-btn2">收藏店铺</button>
-            </div>
-            <div class="dt-ifr-fd">
-                <div class="dt-ifr-tit">
-                    <h3>同类推荐</h3>
-                </div>
-                <dl>
-                    <dt><a href="#"><img src="{{asset('')}}images/dt-ifr-fd-dt-tu.gif"/></a></dt>
-                    <dd>
-                        <a href="#">【观音桥】罗兰钢管舞舞蹈体验</a>
-                        <p>¥9.90</p>
-                    </dd>
-                    <div style="clear:both;"></div>
-                </dl>
-                <dl>
-                    <dt><a href="#"><img src="{{asset('')}}images/dt-ifr-fd-dt-tu.gif"/></a></dt>
-                    <dd>
-                        <a href="#">【观音桥】罗兰钢管舞舞蹈体验</a>
-                        <p>¥9.90</p>
-                    </dd>
-                    <div style="clear:both;"></div>
-                </dl>
-            </div>
-        </div>
-        <div style="clear:both;"></div>
+        <ul>
+            <li class="current-li per-li1"><a href="#">消息中心<span>></span></a></li>
+            <li class="per-li2"><a href="#">个人资料<span>></span></a></li>
+            <li class="per-li3"><a href="#">我的订单<span>></span></a></li>
+            <li class="per-li4"><a href="#">我的预约<span>></span></a></li>
+            <li class="per-li5"><a href="#">购物车<span>></span></a></li>
+            <li class="per-li6"><a href="#">管理收货地址<span>></span></a></li>
+            <li class="per-li7"><a href="#">店铺收藏<span>></span></a></li>
+            <li class="per-li8"><a href="#">购买记录<span>></span></a></li>
+            <li class="per-li9"><a href="#">浏览记录<span>></span></a></li>
+            <li class="per-li10"><a href="#">会员积分<span>></span></a></li>
+        </ul>
     </div>
-    <div class="deta-info2">
-        <div class="dt-if2-l f-l">
-            <div class="if2-l-box1">
-                <div class="if2-tit">
-                    <h3>浏览记录</h3>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li style="border-bottom:0;">
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                </ul>
+    <div class="management f-r">
+        <div class="tanchuang-con">
+            <div class="tc-title">
+                <h3>我的收货地址</h3>
             </div>
-            <div class="if2-l-box1" style="margin-top:18px;">
-                <div class="if2-tit">
-                    <h3>看了又看</h3>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li style="border-bottom:0;">
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a class="if2-li-tit" href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="dt-if2-r f-r">
-            <ul class="if2-tit2">
-                <li class="current" com-det="dt1"><a href="JavaScript:;">产品信息</a></li>
-                <li com-det="dt2"><a href="JavaScript:;">商品评论</a></li>
-                <li com-det="dt3"><a href="JavaScript:;">商家信息</a></li>
-                <div style="clear:both;"></div>
-            </ul>
-            <div style="border:1px solid #DBDBDB;" com-det-show="dt1">
-                {{$good->good_info}}
-            </div>
-            <div style="display:none;" com-det-show="dt2">
-                <dl class="if2-r-box2">
-                    <dt>
-                    <p class="box2-p1">好评率</p>
-                    <p class="box2-p2">96.5%</p>
-                    <p class="box2-p3">共539人评论</p>
-                    </dt>
-                    <dd>
-                        <P>买过的人觉得</P>
-                        <ul>
-                            <li><a href="#">香脆可口(198)</a></li>
-                            <li><a href="#">口感不错(160)</a></li>
-                            <li><a href="#">分量足(84)</a></li>
-                            <li><a href="#">味道不错(47)</a></li>
-                            <li><a href="#">价格便宜(34)</a></li>
-                            <li><a href="#">包装不错(30)</a></li>
-                            <li><a href="#">吃货必备(26)</a></li>
-                            <li><a href="#">送货快(14)</a></li>
-                            <li><a href="#">孩子喜欢(4)</a></li>
-                            <div style="clear:both;"></div>
-                        </ul>
-                    </dd>
-                    <div style="clear:both;"></div>
-                </dl>
-                <div class="if2-r-box3">
-                    <ul>
-                        <li class="current-li"><a href="#">全部（539）</a></li>
-                        <li><a href="#">好评（536）</a></li>
-                        <li><a href="#">中评（2）</a></li>
-                        <li><a href="#">差评（1）</a></li>
-                        <li><a href="#">图片（1）</a></li>
-                        <li><a href="#">追加评论（1）</a></li>
-                        <div style="clear:both;"></div>
-                    </ul>
-                    <dl>
-                        <dt>
-                            <a href="#"><img src="{{asset('')}}images/box3-dt-tu.gif"/></a>
-                        </dt>
-                        <dd>
-                            <a href="#">胡**</a>
-                            <p class="b3-p1">赞赞赞赞赞赞赞赞赞赞赞赞赞！！！！！！！！！</p>
-                            <p class="b3-p2">2015-12-12 16:57:22 </p>
-                        </dd>
-                        <div style="clear:both;"></div>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#"><img src="{{asset('')}}images/box3-dt-tu.gif"/></a>
-                        </dt>
-                        <dd>
-                            <a href="#">胡**</a>
-                            <p class="b3-p1">赞赞赞赞赞赞赞赞赞赞赞赞赞！！！！！！！！！</p>
-                            <p class="b3-p2"><span></span><span></span>2015-12-12 16:57:22</p>
-                            <div style="clear:both;"></div>
-                            <div class="b3-zuijia">
-                                <p class="zj-p1">追加评论：</p>
-                                <p class="zj-p2">赞赞赞赞赞赞赞赞赞赞赞赞赞！！！！！！！！！</p>
-                                <p class="zj-p3">2015-12-12 16:57:22</p>
-                            </div>
-                        </dd>
-                        <div style="clear:both;"></div>
-                    </dl>
-
-                    <!--分页-->
-                    <div class="paging">
-                        <div class="pag-left f-l">
-                            <a href="#" class="about left-r f-l"><</a>
-                            <ul class="left-m f-l">
-                                <li><a href="#">1</a></li>
-                                <li class="current"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">...</a></li>
-                                <li><a href="#">100</a></li>
-                                <div style="clear:both;"></div>
-                            </ul>
-                            <a href="#" class="about left-l f-l">></a>
-                            <div style="clear:both;"></div>
+            <font class="xinxi">请认真填写以下信息！</font>
+            <ul class="tc-con2">
+                <li class="tc-li1">
+                    <p class="l-p">所在地区<span>*</span></p>
+                    <div class="xl-dz">
+                        <div class="dz-right f-l">
+                            <select name="" id="pro">
+                                @foreach($pro as $v)
+                                    <option value="{{$v->province_id}}">{{$v->province_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="pag-right f-l">
-                            <div class="jump-page f-l">
-                                到第<input type="text"/>页
-                            </div>
-                            <button class="f-l">确定</button>
-                            <div style="clear:both;"></div>
+                        <div class="dz-right f-l">
+                            <select name="" id="city">
+                                @foreach($city as $v)
+                                    <option value="{{$v->city_id}}">{{$v->city_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="dz-right f-l">
+                            <select name="" id="area">
+                                @foreach($area as $v)
+                                    <option value="{{$v->area_id}}">{{$v->area_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div style="clear:both;"></div>
                     </div>
-                </div>
-            </div>
-            <div class="if2-r-box4" style="display:none;" com-det-show="dt3">
-                <div class="b4-tit">
-                    <h3>店铺所有商品</h3>
-                </div>
-                <div class="b4-con1">
-                    <a href="#">饼干糕点</a>
-                    <a href="#">坚果果仁</a>
-                    <a href="#">海味肉食</a>
-                    <a href="#">糖果巧克力</a>
-                    <a href="#">豆干炒货</a>
-                    <a href="#">休闲膨化</a>
-                    <a href="#">饮品冲调</a>
-                    <a href="#">蜜饯果脯</a>
-                    <a href="#">方便速食</a>
-                    <a href="#">饼干糕点</a>
-                    <a href="#">坚果果仁</a>
-                    <a href="#">海味肉食</a>
-                    <a href="#">糖果巧克力</a>
-                    <a href="#">豆干炒货</a>
-                    <a href="#">休闲膨化</a>
-                    <a href="#">饮品冲调</a>
-                    <a href="#">蜜饯果脯</a>
-                    <a href="#">方便速食</a>
-                </div>
-                <div class="b4-tit">
-                    <h3>店铺热销商品</h3>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
-                    <li>
-                        <a href="#"><img src="{{asset('')}}images/if2-l-box1-tu1.gif"/></a>
-                        <a href="#">乐事Lay's 无限薯片（翡翠黄瓜味）104g/罐</a>
-                        <p>¥6.90</p>
-                    </li>
                     <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">详细地址<span>*</span></p>
+                    <textarea class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">收货人姓名<span>*</span></p>
+                    <input type="text"/>
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">联系电话<span>*</span></p>
+                    <input type="text"/>
+                    <div style="clear:both;"></div>
+                </li>
+            </ul>
+            <button class="btn-pst2">保存</button>
+        </div>
+        <div class="man-info">
+            <font>您已经保存三个地址！</font>
+            <div class="man-if-con">
+                <div class="man-tit">
+                    <p class="p1">收货人</p>
+                    <p class="p2">所在地区</p>
+                    <p class="p3">详细地址</p>
+                    <p class="p4">邮编</p>
+                    <p class="p5">电话/手机</p>
+                    <p class="p6">操作</p>
+                </div>
+                <ul class="man-ul1">
+                    @foreach($address as $v)
+                    <li>
+                        <p class="p1">{{$v->address_name}}</p>
+                        <p class="p2">{{$v->province}}  {{$v->city}}  {{$v->area}}</p>
+                        <p class="p3">{{$v->address_live}}</p>
+                        <p class="p5">{{$v->address_telephone}}</p>
+                        <p class="p6">
+                            <a href="#">修改</a> |
+                            <a href="#">删除</a>
+                        </p>
+                        <p class="p7"><a href="#">默认地址</a></p>
+                        <div style="clear:both;"></div>
+                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
-        <div style="clear:both;"></div>
     </div>
+    <div style="clear:both;"></div>
 </div>
 
 <!--底部服务-->
@@ -1138,25 +717,23 @@
         沪ICP备13044278号<span>|</span>合字B1.B2-20130004<span>|</span>营业执照<span>|</span>互联网药品信息服务资格证<span>|</span>互联网药品交易服务资格证
     </p>
 </div>
-</body>
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/zhonglin.js')}}"></script>
 <script type="text/javascript">
     $(function () {
-        $('#coll').click(function () {
+        $('#pro').change(function () {
             $.ajax({
-                type: 'post',
-                data: {'id': $(this).attr('good_id'), 'table': 'good'},
+                type: '',
+                data: {'province_num':$(this).val()},
                 dataType: 'json',
-                url: '{{URL('api/user/collAdd')}}',
+                url: '{{URL('')}}',
                 success: function (data) {
-                    console.log(data);
-                },
-                error: function () {
 
                 }
             })
-        });
+
+        })
     })
 </script>
+</body>
 </html>

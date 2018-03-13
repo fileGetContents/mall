@@ -19,6 +19,10 @@ class UserController extends Controller
 //        $user = Models\User::where('user_telephone', '18280195336')->first();
 //        dump($user->user_password);
 //        $good=new Models\Good();
+
+        $city = Models\Area::find(1)->city;
+
+        dump($city);
     }
 
     /**
@@ -30,10 +34,18 @@ class UserController extends Controller
         return view($this->file . 'Registered');
     }
 
+    /**
+     * 用户登录
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function login()
     {
         return view($this->file . 'Login');
     }
 
+    public function order()
+    {
+        return view($this->file . 'Order');
+    }
 
 }

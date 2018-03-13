@@ -10,7 +10,7 @@ class Good extends Model
     protected $primaryKey = 'good_id';
     public $timestamps = false;
     protected $fillable = ['good_id', 'good_name', 'good_image', 'good_images', 'good_coding', 'good_num', 'good_preprice', 'good_oriprice', 'good_time'];
-    protected $casts = ['good_images'=>'array'];
+    protected $casts = ['good_images' => 'array'];
 
     public function setGoodImagesAttribute($value)
     {
@@ -31,7 +31,7 @@ class Good extends Model
      * 获取表格字段
      * @return array
      */
-    public function filed()
+    public static function filed()
     {
         return ['good_id', 'good_name', 'good_image', 'good_images', 'good_coding', 'good_num', 'good_preprice', 'good_oriprice', 'good_time'];
     }
