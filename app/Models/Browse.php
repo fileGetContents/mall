@@ -31,4 +31,18 @@ class Browse extends Model
         return ['browse_id', 'user_id', 'browse_form', 'browse_time', 'browse_num'];
     }
 
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

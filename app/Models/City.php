@@ -34,4 +34,18 @@ class City extends Model
         return $this->hasMany('App\Models\Area', 'city_id', 'city_num');
     }
 
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

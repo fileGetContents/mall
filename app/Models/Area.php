@@ -25,4 +25,18 @@ class Area extends Model
         return $this->hasOne('App\Models\City', 'city_num', 'city_id');
     }
 
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

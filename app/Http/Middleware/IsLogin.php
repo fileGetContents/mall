@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 检测是否登录
+ */
 namespace App\Http\Middleware;
 
 use Closure;

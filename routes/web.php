@@ -17,10 +17,11 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('user/registered', 'UserController@registered');
     Route::get('user', 'UserController@index');
     Route::get('user/login', 'UserController@login');
-    Route::get('user/order', 'UserController@order');
+    Route::get('user/order/{id}', 'UserController@order')->where(['id' => '[0-9]+']);
 
     Route::get('personal/message', 'PersonalController@message');
     Route::get('personal/address', 'PersonalController@address');
+
 
     Route::get('good/detailed/{id?}', 'GoodController@detailed');
 });
@@ -37,15 +38,5 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('user/collAdd', 'UserController@collectionAdd');
 
     Route::any('personal/getMessage/{id?}', 'PersonalController@getUserMessage');
-});
-
-Route::get('cookieset', function () {
-    $user_info = array('name' => 'laravel', 'age' => 13);
-    //7m $user = Cookie::queue('user', $user_info, 30);
-    dd(Cookie::get('user'));
-    //return Response::make()->withCookie($user);
-});
-
-Route::get('cookietest', function () {
-    dd(Cookie::get('user'));
+    Route::any('personal/saveAddress', 'PersonalController@saveAddress');
 });

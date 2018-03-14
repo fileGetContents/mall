@@ -36,4 +36,19 @@ class Good extends Model
         return ['good_id', 'good_name', 'good_image', 'good_images', 'good_coding', 'good_num', 'good_preprice', 'good_oriprice', 'good_time'];
     }
 
+
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

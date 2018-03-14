@@ -43,9 +43,13 @@ class UserController extends Controller
         return view($this->file . 'Login');
     }
 
-    public function order()
+    public function order($id)
     {
-        return view($this->file . 'Order');
+        $view['address'] = Models\Address::select(Models\Address::file())
+            ->where('user_id', session('user_id', 2))
+            ->get();
+        $view['good'] = Models\Good::find($id);
+        return view($this->file . 'Order')->with($view);
     }
 
 }

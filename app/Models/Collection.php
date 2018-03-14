@@ -20,4 +20,19 @@ class Collection extends Model
     {
         return ['collection_id', 'collection_table', 'collection_tableid', 'user_id', 'collection_time'];
     }
+
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

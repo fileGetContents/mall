@@ -11,6 +11,6 @@ class AddressController extends Controller
     public function city(Request $request)
     {
         $city = Models\Province::find($request->input('id', 1))->city;
-        
+
     }
 }

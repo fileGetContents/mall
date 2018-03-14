@@ -16,4 +16,25 @@ class Address extends Model
         return ['address_id', 'user_id', 'area', 'city', 'province', 'address_live', 'address_time', 'address_tag', 'address_name', 'address_telephone'];
     }
 
+
+    public function getAddressTimeAttribute($value)
+    {
+        return date('Y-m-d H:i:s', $value);
+    }
+
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
+
 }

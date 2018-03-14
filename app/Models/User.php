@@ -26,4 +26,18 @@ class User extends Model
         return ['user_id', 'user_nickname', 'user_telephone', 'user_time', 'user_password'];
     }
 
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }

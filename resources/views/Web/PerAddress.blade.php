@@ -576,21 +576,21 @@
                         <div class="dz-right f-l">
                             <select name="" id="pro">
                                 @foreach($pro as $v)
-                                    <option value="{{$v->province_id}}">{{$v->province_name}}</option>
+                                    <option value="{{$v->province_name}}">{{$v->province_name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="dz-right f-l">
                             <select name="" id="city">
                                 @foreach($city as $v)
-                                    <option value="{{$v->city_id}}">{{$v->city_name}}</option>
+                                    <option value="{{$v->city_name}}">{{$v->city_name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="dz-right f-l">
                             <select name="" id="area">
                                 @foreach($area as $v)
-                                    <option value="{{$v->area_id}}">{{$v->area_name}}</option>
+                                    <option value="{{$v->area_name}}">{{$v->area_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -600,21 +600,21 @@
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">详细地址<span>*</span></p>
-                    <textarea class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
+                    <textarea class="textarea1" id="address" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">收货人姓名<span>*</span></p>
-                    <input type="text"/>
+                    <input id="name" type="text"/>
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">联系电话<span>*</span></p>
-                    <input type="text"/>
+                    <input id="telephone" type="text"/>
                     <div style="clear:both;"></div>
                 </li>
             </ul>
-            <button class="btn-pst2">保存</button>
+            <button id="address_botn" class="btn-pst2">保存</button>
         </div>
         <div class="man-info">
             <font>您已经保存三个地址！</font>
@@ -629,18 +629,18 @@
                 </div>
                 <ul class="man-ul1">
                     @foreach($address as $v)
-                    <li>
-                        <p class="p1">{{$v->address_name}}</p>
-                        <p class="p2">{{$v->province}}  {{$v->city}}  {{$v->area}}</p>
-                        <p class="p3">{{$v->address_live}}</p>
-                        <p class="p5">{{$v->address_telephone}}</p>
-                        <p class="p6">
-                            <a href="#">修改</a> |
-                            <a href="#">删除</a>
-                        </p>
-                        <p class="p7"><a href="#">默认地址</a></p>
-                        <div style="clear:both;"></div>
-                    </li>
+                        <li>
+                            <p class="p1">{{$v->address_name}}</p>
+                            <p class="p2">{{$v->province}}  {{$v->city}}  {{$v->area}}</p>
+                            <p class="p3">{{$v->address_live}}</p>
+                            <p class="p5">{{$v->address_telephone}}</p>
+                            <p class="p6">
+                                <a href="#">修改</a> |
+                                <a href="#">删除</a>
+                            </p>
+                            <p class="p7"><a href="#">默认地址</a></p>
+                            <div style="clear:both;"></div>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -699,7 +699,6 @@
         <div style="clear:both;"></div>
     </div>
 </div>
-
 <!--底部 版权-->
 <div class="footer w1200">
     <p>
@@ -721,18 +720,27 @@
 <script type="text/javascript" src="{{asset('js/zhonglin.js')}}"></script>
 <script type="text/javascript">
     $(function () {
-        $('#pro').change(function () {
+        $('#address_botn').click(function () {
             $.ajax({
-                type: '',
-                data: {'province_num':$(this).val()},
+                type: 'post',
+                data: {
+                    'province': $('#pro').val(),
+                    'city': $('#city').val(),
+                    'area': $('#area').val(),
+                    'address_live': $('#address').val(),
+                    'address_name': $('#name').val(),
+                    'address_telephone': $('#telephone').val()
+                },
                 dataType: 'json',
-                url: '{{URL('')}}',
+                url: '{{URL('api/personal/saveAddress')}}',
                 success: function (data) {
+
+                },
+                error: function () {
 
                 }
             })
-
-        })
+        });
     })
 </script>
 </body>

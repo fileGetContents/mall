@@ -192,27 +192,24 @@
                 </div>
             </div>
             <ul class="order-address-list clearfix" id="addressList" style="height: 174px;">
-                <li class="order-address-checkbox checked" data-mdesc="收货人信息" data-mtype="store_se_adr">
-                    <div class="order-address-checkbox-top">
-                        <div class="order-address-checkbox-name" title="庾（yu）治超">庾（yu）治超</div>
-                        <div class="order-address-checkbox-phone">18280195336</div>
-                    </div>
-                    <div class="order-address-checkbox-content">四川省成都市武侯区浆洗街街道四川音乐学院（北校区）新生路5号</div>
-                    <div class="order-address-checkbox-checked">
-                        <div class="order-address-checkbox-tick"></div>
-                    </div>
 
-                    <div class="order-address-checkbox-ctrl">
-                        <div class="order-address-checkbox-delete"></div>
-                        <div class="order-address-checkbox-edit"></div>
-                    </div>
-
-
-                </li>
-                <li class="order-address-checkbox add">
-                    <div class="order-add-icon"></div>
-                    <div class="order-address-add-text">添加新地址</div>
-                </li>
+                @foreach($address  as $v)
+                    <li class="order-address-checkbox @if($v->address_tag == 1) checked @endif " data-mdesc="收货人信息" data-mtype="store_se_adr">
+                        <div class="order-address-checkbox-top">
+                            <div class="order-address-checkbox-name"
+                                 title="{{$v->address_name}}">{{$v->address_name}}</div>
+                            <div class="order-address-checkbox-phone">{{$v->address_telephone}}</div>
+                        </div>
+                        <div class="order-address-checkbox-content">{{$v->province}}{{$v->city}}{{$v->area}}{{$v->address_live}}</div>
+                        <div class="order-address-checkbox-checked">
+                            <div class="order-address-checkbox-tick"></div>
+                        </div>
+                        <div class="order-address-checkbox-ctrl">
+                            <div class="order-address-checkbox-delete"></div>
+                            <div class="order-address-checkbox-edit"></div>
+                        </div>
+                    </li>
+                @endforeach
             </ul>
             <div class="order-address-bottom">
                 <div class="order-address-more" id="orderAddressMore">
@@ -230,7 +227,7 @@
                     <tr>
                         <th class="order-product-table-name">
                             <div class="order-product-supplier">
-                                供应商：<span class="order-product-supplier-name">魅族</span>
+                                供应商：<span class="order-product-supplier-name"> </span>
                                 <!--<div class="order-product-supplier-tips">由“魅族”负责发货，并提供售后服务</div>-->
                             </div>
                         </th>
@@ -248,45 +245,31 @@
                                data-mtype="store_se_ord">
                                 <img class="order-product-image"
                                      data-original="//openfile.meizu.com/group1/M00/02/21/Cgbj0FnCGzeAI4mGAA06dyxPdr8087.png@120x120.jpg"
-                                     src="./确认订单-魅族商城_files/Cgbj0FnCGzeAI4mGAA06dyxPdr8087.png@120x120.jpg"
+                                     src="{{$good->good_image}}"
                                      style="display: inline;">
                             </a>
                             <div class="order-product-name">
                                 <a target="_blank" class="order-product-link"
                                    href="https://detail.meizu.com/item/meilan_6.html" data-mdesc="确认订单信息"
                                    data-mtype="store_se_ord">
-                                    <p class="order-product-name-item">魅蓝 6</p>
-                                    <p class="order-product-name-item">全网通公开版 香槟金 2GB+16GB</p>
-
+                                    <p>{{$good->good_name}}</p>
                                 </a>
                             </div>
                         </td>
                         <td class="order-product-table-price">
                             <p>
-                                <span class="order-product-price">699.00</span>
-
+                                <span class="order-product-price">{{$good->good_preprice}}</span>
                             </p>
-
-
                         </td>
                         <td class="order-product-table-num">1</td>
                         <td class="order-product-table-total">
-                            <p class="order-product-price red">699.00</p>
+                            <p class="order-product-price red">{{$good->good_preprice}}</p>
                         </td>
-
                         <td class="order-product-table-express" rowspan="999">
                             <p>
                                 快递配送：运费<span class="order-product-price red">0.00</span>
                             </p>
-                            <div class="order-product-arrival">
-
-                                <p><i class="order-product-arrival-icon"></i>次日达</p>
-
-                                <p>24:00前下单并支付，</p>
-                                <p>预计<strong>明天（03月14日）</strong>送达</p>
-                            </div>
                         </td>
-
                     </tr>
                     </tbody>
                     <tfoot>

@@ -20,4 +20,23 @@ class Message extends Model
         return date('Y-m-d H:i:s', $value);
     }
 
+    public static function file()
+    {
+        return ['message_id', 'message_title', 'message_text', 'message_form', 'message_time', 'user_id', 'admin_id'];
+    }
+
+    /**
+     * @param $array
+     * @return bool
+     */
+    public function insert($array)
+    {
+        if (is_array($array)) {
+            foreach ($array as $key => $value) {
+                $this->$key = $value;
+            }
+            return $this->save();
+        }
+        return false;
+    }
 }
