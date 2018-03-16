@@ -194,7 +194,9 @@
             <ul class="order-address-list clearfix" id="addressList" style="height: 174px;">
 
                 @foreach($address  as $v)
-                    <li class="order-address-checkbox @if($v->address_tag == 1) checked @endif " data-mdesc="收货人信息" data-mtype="store_se_adr">
+                    <li class="order-address-checkbox @if($v->address_tag == 1) checked @endif " id="{{$v->address_id}}"
+                        data-mdesc="收货人信息"
+                        data-mtype="store_se_adr">
                         <div class="order-address-checkbox-top">
                             <div class="order-address-checkbox-name"
                                  title="{{$v->address_name}}">{{$v->address_name}}</div>
@@ -364,7 +366,6 @@
         </div>
     </div>
 </div>
-
 <!--底部服务-->
 <div class="ft-service">
     <div class="w1200">
@@ -415,7 +416,6 @@
         <div style="clear:both;"></div>
     </div>
 </div>
-
 <!--底部 版权-->
 <div class="footer w1200">
     <p>
@@ -436,4 +436,22 @@
 </body>
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/zhonglin.js')}}"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#submitForm').click(function () {
+            $.ajax({
+                type: 'post',
+                data: {'good_id': '{{$good->good_id}}', 'address_id': $('.checked').eq(0).attr('id')},
+                dataType: 'json',
+                url: '{{URL('api/order/create')}}',
+                success: function (data) {
+
+                },
+                error: function () {
+
+                }
+            })
+        });
+    });
+</script>
 </html>

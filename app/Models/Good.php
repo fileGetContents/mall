@@ -51,4 +51,23 @@ class Good extends Model
         }
         return false;
     }
+
+    /**
+     * 查询时候存在库存
+     * @param $id
+     * @return bool
+     */
+    public static function hasInvento($id)
+    {
+        $good = Good::select(static::filed())
+            ->where('good_num', '>', 0)
+            ->where(['good_id' => $id, 'good_state' => 1])
+            ->first();
+        if (is_null($good)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

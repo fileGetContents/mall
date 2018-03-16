@@ -22,7 +22,6 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('personal/message', 'PersonalController@message');
     Route::get('personal/address', 'PersonalController@address');
 
-
     Route::get('good/detailed/{id?}', 'GoodController@detailed');
 });
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
@@ -39,4 +38,6 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
     Route::any('personal/getMessage/{id?}', 'PersonalController@getUserMessage');
     Route::any('personal/saveAddress', 'PersonalController@saveAddress');
+
+    Route::any('order/create', 'OrderController@create');
 });

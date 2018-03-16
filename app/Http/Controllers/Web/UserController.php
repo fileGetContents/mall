@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -19,10 +19,9 @@ class UserController extends Controller
 //        $user = Models\User::where('user_telephone', '18280195336')->first();
 //        dump($user->user_password);
 //        $good=new Models\Good();
-
-        $city = Models\Area::find(1)->city;
-
-        dump($city);
+//        $city = Models\Area::find(1)->city;
+//        dump($city);
+        return rand(100000, 999999) . date('Ymd') . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
     }
 
     /**
@@ -43,6 +42,11 @@ class UserController extends Controller
         return view($this->file . 'Login');
     }
 
+    /**
+     * 结算订单
+     * @param $id
+     * @return $this
+     */
     public function order($id)
     {
         $view['address'] = Models\Address::select(Models\Address::file())
@@ -51,5 +55,6 @@ class UserController extends Controller
         $view['good'] = Models\Good::find($id);
         return view($this->file . 'Order')->with($view);
     }
+
 
 }
