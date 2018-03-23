@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\CreateOrder;
+use App\Events\UpdateOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models;
@@ -29,14 +31,23 @@ class OrderController extends Controller
             $order = new Models\Order();
             $all['order_serial'] = $order->createSerial();
             if ($order->insert($all)) {
-                return collect(['message' => 'success', 'data' => '']);
+                // 分发事件
+                $event = Models\Order::where('order_serial', $all['order_serial'])->first();
+                event(new CreateOrder($event));
+                return collect(['message' => 'success', 'data' => ''])->toJson();
             } else {
-                return collect(['message' => 'error', 'data' => '订单创建失败']);
+                return collect(['message' => 'error', 'data' => '订单创建失败'])->toJson();
             }
         } else {
             return collect(['message' => 'error', 'data' => '库存不足或者商品已经下架了'])->toJson();
         }
     }
 
+
+    public function updateNotice()
+    {
+        $event = Models\Order::find(2);
+        event(new UpdateOrder($event));
+    }
 
 }

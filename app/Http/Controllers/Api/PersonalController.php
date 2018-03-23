@@ -10,6 +10,10 @@ use App\Rules;
 
 class PersonalController extends Controller
 {
+    /**
+     * @param $id
+     * @return string
+     */
     public function getUserMessage($id)
     {
         $id = is_null($id) ? session('user_id') : $id;
@@ -21,8 +25,7 @@ class PersonalController extends Controller
         }
     }
 
-    /**
-     *
+    /*
      * @param Request $request
      * @return string
      */

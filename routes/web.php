@@ -16,6 +16,7 @@ Route::get('/', function () {
 Route::group(['namespace' => 'Web'], function () {
     Route::get('user/registered', 'UserController@registered');
     Route::get('user', 'UserController@index');
+    Route::get('user2', 'UserController@index2');
     Route::get('user/login', 'UserController@login');
     Route::get('user/order/{id}', 'UserController@order')->where(['id' => '[0-9]+']);
 
@@ -41,3 +42,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
     Route::any('order/create', 'OrderController@create');
 });
+
+Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
+
+    Route::any('terminal','TerminalController@Terminal');
+
+
+});
+
+

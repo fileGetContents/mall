@@ -5,24 +5,20 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
-
-
 class UserController extends Controller
 {
     private $file = 'Web.User';
 
     public function index()
     {
-//        dump(preg_match('/^1[34578]\d{9}$/', '1828019533'));
-//        $sql = Models\User::select(Models\User::field())->where('user_telephone', '18280195336')->toSql();
-//        dump($sql);
-//        $user = Models\User::where('user_telephone', '18280195336')->first();
-//        dump($user->user_password);
-//        $good=new Models\Good();
-//        $city = Models\Area::find(1)->city;
-//        dump($city);
-        return rand(100000, 999999) . date('Ymd') . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
+
     }
+
+    public function index2()
+    {
+
+    }
+
 
     /**
      * 用户注册界面
