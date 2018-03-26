@@ -96,13 +96,16 @@ class UserController extends Controller
         ]);
         $user = Models\User::where('user_telephone', $request->input('telephone'))->first();
         if (is_null($user)) {
-            return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
+            return parent::error('账号或者密码错误');
+            // return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
         } else {
             if ($user->user_password == $request->input('password')) {
                 session(['user_id' => $user->user_id]);
-                return collect(['message' => 'true', 'data' => ''])->toJson();
+                return parent::success();
+               // return collect(['message' => 'true', 'data' => ''])->toJson();
             } else {
-                return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
+                return parent::error('账号或者密码错误');
+                //return collect(['message' => 'false', 'data' => '账号或者密码错误'])->toJson();
             }
         }
     }
@@ -125,9 +128,11 @@ class UserController extends Controller
             ->first();
         if (!is_null($isColl)) {
             if ($isColl->forceDelete()) {
-                return collect(['message' => 'success', 'data' => '取消收藏成功']);
+                return parent::success('取消收藏成功');
+                // return collect(['message' => 'success', 'data' => '取消收藏成功']);
             } else {
-                return collect(['message' => 'error', 'data' => '取消收藏失败']);
+                return parent::error('取消收藏失败');
+                //   return collect(['message' => 'error', 'data' => '取消收藏失败']);
             };
         }
         $coll = new Models\Collection();
@@ -136,9 +141,11 @@ class UserController extends Controller
         $coll->user_id = session('user_id', 2);
         $coll->collection_time = $_SERVER['REQUEST_TIME'];
         if ($coll->save()) {
-            return collect(['message' => 'success', 'data' => '添加收藏成功'])->toJson();
+            return parent::success('添加收藏成功');
+            //return collect(['message' => 'success', 'data' => '添加收藏成功'])->toJson();
         } else {
-            return collect(['message' => 'error', 'data' => '添加收藏失败'])->toJson();
+            return parent::error('添加收藏失败');
+            //return collect(['message' => 'error', 'data' => '添加收藏失败'])->toJson();
         }
     }
 

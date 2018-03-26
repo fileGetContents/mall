@@ -22,7 +22,8 @@ class OrderController extends Controller
             $all['order_status'] = 0;
             $address = Models\Address::find($input['address_id']);
             if (is_null($address)) {
-                return collect(['message' => 'error', 'data' => '收货地址不存在'])->toJson();
+                return parent::error('收货地址不存在');
+                //return collect(['message' => 'error', 'data' => '收货地址不存在'])->toJson();
             }
             $all['order_address'] = serialize([$address->province, $address->city, $address->area, $address->address_live]);
             $all['order_telephone'] = $address->address_telephone;
@@ -34,12 +35,15 @@ class OrderController extends Controller
                 // 分发事件
                 $event = Models\Order::where('order_serial', $all['order_serial'])->first();
                 event(new CreateOrder($event));
-                return collect(['message' => 'success', 'data' => ''])->toJson();
+                return parent::success();
+                //return collect(['message' => 'success', 'data' => ''])->toJson();
             } else {
-                return collect(['message' => 'error', 'data' => '订单创建失败'])->toJson();
+                return parent::error('订单创建失败');
+                //return collect(['message' => 'error', 'data' => '订单创建失败'])->toJson();
             }
         } else {
-            return collect(['message' => 'error', 'data' => '库存不足或者商品已经下架了'])->toJson();
+            return parent::error('库存不足或者商品已经下架了');
+           // return collect(['message' => 'error', 'data' => '库存不足或者商品已经下架了'])->toJson();
         }
     }
 
