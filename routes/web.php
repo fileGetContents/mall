@@ -41,10 +41,11 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('personal/saveAddress', 'PersonalController@saveAddress');
 
     Route::any('order/create', 'OrderController@create');
+    Route::any('rushPurchase', 'OrderCOntroller@rushPurchase');
 });
 
 
-Route::get('crate', 'CacheController@crate');
+Route::any('crate', 'CacheController@crate');
 
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
 

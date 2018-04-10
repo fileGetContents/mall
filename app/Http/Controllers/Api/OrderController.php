@@ -67,28 +67,34 @@ class OrderController extends Controller
      */
     public function rushPurchase(Request $request)
     {
-        $id = $request->id;
+        $id = is_null($request->id) ? 15 : $request->id;
         // 检查是否纯在redis 没有则没有开始
         if (Cache::has($id)) {
-            $buyNum = rand(1, 10);        // 随机产生抢购数额
+            $buyNum = 10; //rand(1, 30);        // 随机产生抢购数额
             $userId = rand(1, 200000);    // 随机产生用户id
             // 检查剩余数量是否足够
-            $num = Cache::decrement($id, $buyNum);
-            if ($num < 0) {
-                Cache::increment($id, $buyNum);
+            if (Cache::get($id) < 0) {
                 return parent::error('剩余份数足,抢购失败');
-            } else {
-                //删除关于这个商品抢购记录
-                if (Cache::has($id . $userId)) {
-                    Cache::forget($id . $userId);
-                }
-                if (Cache::add($id . $userId, $buyNum, 20)) {
-                    Log::info('缓存错误');
-                    return parent::error('网络延迟');
+            }
+            $hasNum = Cache::get($id);
+            if ($hasNum - $buyNum >= 0) {
+                if (Cache::decrement($id, $buyNum) >= 0) {
+                    //删除关于这个商品抢购记录
+                    if (Cache::has($id . $userId)) {
+                        Cache::forget($id . $userId);
+                    }
+                    if (Cache::add($id . $userId, $buyNum, 20)) { // 记录成功
+                        return static::redisCreateOrder($id . $userId, $buyNum, $userId, $id);
+                    } else {
+                        //return parent::error('抢购成功');
+                        Log::info('缓存错误');
+                        return parent::error('网络延迟');
+                    }
                 } else {
-                    return static::redisCreateOrder(id . $userId, $buyNum, $userId, $id);
-                    //return parent::error('抢购成功');
+                    return parent::error('抢购失败');
                 }
+            } else {
+                return parent::error('剩余份数不足');
             }
         } else {
             return parent::error('还没有开始抢购');
@@ -109,9 +115,10 @@ class OrderController extends Controller
                 'message_time' => $_SERVER['REQUEST_TIME'],
                 'message_form' => '哈哈哈' . $num,
                 'user_id' => $uId,
-                'admin_id' => 2
+                'admin_id' => $num
             ]);
             if ($bool) {
+                Cache::forget($key); // 删除存在的redis
                 return parent::success('购买成功');
             } else {
                 return parent::error('购买失败');
