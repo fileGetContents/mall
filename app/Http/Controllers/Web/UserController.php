@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Log;
+
 class UserController extends Controller
 {
     private $file = 'Web.User';
@@ -16,7 +19,6 @@ class UserController extends Controller
 
     public function index2()
     {
-
     }
 
 

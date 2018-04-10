@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models;
 use Illuminate\Support\Facades\Cache;
+use Log;
 
 class GoodController extends Controller
 {
@@ -19,7 +20,13 @@ class GoodController extends Controller
     public function detailed(Request $request)
     {
         $id = is_null($request->id) ? 15 : $request->id;
-        $good = Models\Good::find($id);
+        $good = Cache::get($id);
+        if (is_null($good)) {
+            $good = Models\Good::find($id);
+            Cache::add($id, $good->toJson(), 5);
+        } else {
+            $good = json_decode($good);
+        }
         return view($this->file . 'Detailed', [
             'good' => $good
         ]);

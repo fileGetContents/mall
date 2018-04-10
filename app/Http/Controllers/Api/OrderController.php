@@ -7,10 +7,17 @@ use App\Events\UpdateOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models;
+use Illuminate\Contracts\Redis;
+use Illuminate\Support\Facades\Cache;
 
 class OrderController extends Controller
 {
 
+    /**
+     *普通创建订单
+     * @param Request $request
+     * @return string
+     */
     public function create(Request $request)
     {
         $input = $request->all();
@@ -23,7 +30,6 @@ class OrderController extends Controller
             $address = Models\Address::find($input['address_id']);
             if (is_null($address)) {
                 return parent::error('收货地址不存在');
-                //return collect(['message' => 'error', 'data' => '收货地址不存在'])->toJson();
             }
             $all['order_address'] = serialize([$address->province, $address->city, $address->area, $address->address_live]);
             $all['order_telephone'] = $address->address_telephone;
@@ -35,23 +41,34 @@ class OrderController extends Controller
                 // 分发事件
                 $event = Models\Order::where('order_serial', $all['order_serial'])->first();
                 event(new CreateOrder($event));
+                // 清楚关于这份清单的缓存
+                Redis::del($input['good_id']);
                 return parent::success();
-                //return collect(['message' => 'success', 'data' => ''])->toJson();
+
             } else {
                 return parent::error('订单创建失败');
-                //return collect(['message' => 'error', 'data' => '订单创建失败'])->toJson();
             }
         } else {
             return parent::error('库存不足或者商品已经下架了');
-           // return collect(['message' => 'error', 'data' => '库存不足或者商品已经下架了'])->toJson();
         }
     }
-
 
     public function updateNotice()
     {
         $event = Models\Order::find(2);
         event(new UpdateOrder($event));
+    }
+
+    public function rushPurchase(Request $request)
+    {
+        $id = $request->id;
+        // 检查是否纯在redis 没有则没有开始
+        if (Cache::has($id)) {
+
+
+        } else {
+            return parent::error('还没有开始抢购');
+        }
     }
 
 }

@@ -43,9 +43,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('order/create', 'OrderController@create');
 });
 
+
+Route::get('crate', 'CacheController@crate');
+
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
 
-    Route::any('terminal','TerminalController@Terminal');
+    Route::any('terminal', 'TerminalController@Terminal');
 
 
 });
