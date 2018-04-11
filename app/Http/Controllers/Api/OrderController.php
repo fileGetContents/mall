@@ -7,8 +7,7 @@ use App\Events\UpdateOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models;
-use Illuminate\Contracts\Redis;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 use Log;
 
 class OrderController extends Controller
@@ -61,43 +60,30 @@ class OrderController extends Controller
     }
 
     /**
-     * Redis抢购
+     * Redis队列抢购
      * @param Request $request
      * @return string
      */
     public function rushPurchase(Request $request)
     {
         $id = is_null($request->id) ? 15 : $request->id;
-        // 检查是否纯在redis 没有则没有开始
-        if (Cache::has($id)) {
-            $buyNum = 10; //rand(1, 30);        // 随机产生抢购数额
-            $userId = rand(1, 200000);    // 随机产生用户id
-            // 检查剩余数量是否足够
-            if (Cache::get($id) < 0) {
-                return parent::error('剩余份数足,抢购失败');
+        $buyNum = rand(1, 20);
+        $Uid = rand(1, 2000);
+        // 检查是否存在
+        if (Redis::exists($id)) {
+            dump(Redis::get($id));
+
+            if (intval(Redis::get($id)) - $buyNum <= 0) {
+                return parent::error(2);
             }
-            $hasNum = Cache::get($id);
-            if ($hasNum - $buyNum >= 0) {
-                if (Cache::decrement($id, $buyNum) >= 0) {
-                    //删除关于这个商品抢购记录
-                    if (Cache::has($id . $userId)) {
-                        Cache::forget($id . $userId);
-                    }
-                    if (Cache::add($id . $userId, $buyNum, 20)) { // 记录成功
-                        return static::redisCreateOrder($id . $userId, $buyNum, $userId, $id);
-                    } else {
-                        //return parent::error('抢购成功');
-                        Log::info('缓存错误');
-                        return parent::error('网络延迟');
-                    }
-                } else {
-                    return parent::error('抢购失败');
-                }
-            } else {
-                return parent::error('剩余份数不足');
-            }
+            // 加入redis队列头部
+            dump(Redis::lpush('userList' . $id, serialize(['user_id' => $Uid, 'num' => $buyNum])));
+            // 开始移除底部并删除
+            dump(Redis::lrange('userList' . $id, 0, 100));
+            $info = Redis::bpop('userList' . $id);
+//            dump($info);
         } else {
-            return parent::error('还没有开始抢购');
+            return parent::error(1);
         }
     }
 
