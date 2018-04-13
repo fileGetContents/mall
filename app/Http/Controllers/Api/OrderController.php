@@ -66,24 +66,39 @@ class OrderController extends Controller
      */
     public function rushPurchase(Request $request)
     {
-        $id = is_null($request->id) ? 15 : $request->id;
+        $id = is_null($request->id) ? 29 : $request->id;
         $buyNum = rand(1, 20);
         $Uid = rand(1, 2000);
         // 检查是否存在
         if (Redis::exists($id)) {
-            dump(Redis::get($id));
-
-            if (intval(Redis::get($id)) - $buyNum <= 0) {
-                return parent::error(2);
+            // 检查库存
+            if (intval(Redis::get($id)) - $buyNum < 0) {
+                echo 4;
+                return;
+                // return parent::error(1);
             }
             // 加入redis队列头部
-            dump(Redis::lpush('userList' . $id, serialize(['user_id' => $Uid, 'num' => $buyNum])));
-            // 开始移除底部并删除
-            dump(Redis::lrange('userList' . $id, 0, 100));
-            $info = Redis::bpop('userList' . $id);
+            Redis::lpush('userList' . $id, serialize(['user_id' => $Uid, 'num' => $buyNum, 'id' => $id]));
+
+            // 获取队列长度
+            $arrLen = array_fill(0, Redis::llen('userList' . $id), 'good'); // 返回同等长度数组
+            foreach ($arrLen as $key => $value) {  // 开始一个一个取出用户
+                $info = Redis::rpop('userList' . $id); // 取出用户购买
+                $info = unserialize($info);
+                if (intval(Redis::get($id)) - $info['num'] >= 0) {  // 检查是否有购买资格
+                    if (Redis::decrby($id, $info['num']) >= 0) { // 再次检查是否有购买资格 DECRBY
+                        Redis::setnx($id . $Uid, serialize($info)); // 设置缓存并且只能缓存一次
+                    } else {
+                        Redis::incrby($id, $info['num']);  // 失去的份数加回来
+                    }
+                }
+            }
+            static::redisCreateOrder($id . $Uid);    // 单项进行输出
 //            dump($info);
         } else {
-            return parent::error(1);
+            echo 3;
+            return;
+            //    return parent::error(2);
         }
     }
 
@@ -91,28 +106,35 @@ class OrderController extends Controller
      * 创建生订单
      * @return string
      */
-    private static function redisCreateOrder($key, $num, $uId, $gId)
+    private static function redisCreateOrder($key)
     {
-        if (Cache::has($key)) {
+        if (Redis::exists($key)) {
+            $info = Redis::get($key);
+            $info = unserialize($info);
+            if ($info == false) {  // 删除因为系统执行失败的订单
+                echo 10;
+                return;
+            }
             $mes = new Models\Message();
             $bool = $mes->insert([
-                'message_title' => '成功了耶' . rand(100, 200),
-                'message_text' => 'good' . $gId,
+                'message_title' => serialize($info),//serialize($info),
+                'message_text' => 'good' . $info['id'],
                 'message_time' => $_SERVER['REQUEST_TIME'],
-                'message_form' => '哈哈哈' . $num,
-                'user_id' => $uId,
-                'admin_id' => $num
+                'message_form' => $info['user_id'],
+                'user_id' => $info['num'],
+                'admin_id' => 1,
             ]);
             if ($bool) {
-                Cache::forget($key); // 删除存在的redis
-                return parent::success('购买成功');
+                echo 1;
+                return;
             } else {
-                return parent::error('购买失败');
+                echo 2;
+                return;
             }
-        } else {
-            Log::info('失败2');
-            return parent::error();
         }
+        echo 5;
+        return;
+        //return parent::error(4);
     }
 
 }
