@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
 
     /**
-     *普通创建订单
+     * 普通创建订单
      * @param Request $request
      * @return string
      */
@@ -79,7 +79,6 @@ class OrderController extends Controller
             }
             // 加入redis队列头部
             Redis::lpush('userList' . $id, serialize(['user_id' => $Uid, 'num' => $buyNum, 'id' => $id]));
-
             // 获取队列长度
             $arrLen = array_fill(0, Redis::llen('userList' . $id), 'good'); // 返回同等长度数组
             foreach ($arrLen as $key => $value) {  // 开始一个一个取出用户
@@ -94,11 +93,9 @@ class OrderController extends Controller
                 }
             }
             static::redisCreateOrder($id . $Uid);    // 单项进行输出
-//            dump($info);
         } else {
             echo 3;
             return;
-            //    return parent::error(2);
         }
     }
 
@@ -134,7 +131,6 @@ class OrderController extends Controller
         }
         echo 5;
         return;
-        //return parent::error(4);
     }
 
 }
