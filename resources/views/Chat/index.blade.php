@@ -211,9 +211,7 @@
 <script type="text/javascript" src="{{asset('Chat/js/jquery.min.js')}}"></script>
 {{--<script type="text/javascript" src="{{asset('Chat/js/chat.js')}}"></script>--}}
 <script type="text/javascript">
-
     // 链接后端程序
-
     (function connect() {
         var ws = new WebSocket("ws://" + document.domain + ":7272");
 
@@ -222,8 +220,13 @@
         };
 
         ws.onmessage = function (e) {
-            console.log(e);
-            addMessage(e.data)
+            var data = JSON.parse(e.data),
+                    type = data.type || '';
+            switch (type) {
+                case  'all':
+                    addMessage(data.message);
+                    break;
+            }
         };
 
         ws.onerror = function () {
@@ -232,7 +235,6 @@
 
         ws.onclose = function () {
             console.log('连接关闭，正在重连');
-            connection_lost(true); // 显示连接丢失
             connect(); // 重连
         };
     })();
@@ -252,25 +254,6 @@
             }
         })
     });
-
-    // 发送消息
-    //    $('.sendBtn').on('click', function () {
-    //        var news = $('#dope').val();
-    //        if (news == '') {
-    //            alert('不能为空');
-    //        } else {
-    //            $('#dope').val('');
-    //            var str = '';
-    //            str += '<li>' +
-    //                    '<div class="nesHead"><img src="img/6.jpg"/></div>' +
-    //                    '<div class="news"><img class="jiao" src="img/20170926103645_03_02.jpg">' + news + '</div>' +
-    //                    '</li>';
-    //            $('.newsList').append(str);
-    //            $('.conLeft').find('li.bg').children('.liRight').children('.infor').text(news);
-    //            $('.RightCont').scrollTop($('.RightCont')[0].scrollHeight);
-    //        }
-    //    })
-
 
     function addMessage($message) {
         var str = '';

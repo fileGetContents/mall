@@ -6,6 +6,7 @@ use App\Models;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Rules;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -94,18 +95,31 @@ class UserController extends Controller
             'telephone' => ['required', new Rules\Telephone()],
             'password' => ['required', new Rules\Password()]
         ]);
-        $user = Models\User::where('user_telephone', $request->input('telephone'))->first();
+        $input = $request->all();
+        if (Redis::exists('login' . $input['telephone'])) {
+            $password = Redis::get('login' . $input['telephone']);
+            if ($input['password'] == $password) {
+                return parent::success('redis登陆成功');
+            } else {
+                return parent::error('redis登陆失败');
+            }
+        }
+        $user = Models\User::where('user_telephone', $input['telephone'])->first();
         if (is_null($user)) {
             return parent::error('账号或者密码错误');
         } else {
-            if ($user->user_password == $request->input('password')) {
+            if ($user->user_password == $input['password']) {
+                Redis::set('login' . $input['telephone'], $user->user_password);
+                Redis::expire('login' . $input['telephone'], 100000); //	EXPIRE
                 session(['user_id' => $user->user_id]);
                 return parent::success();
             } else {
                 return parent::error('账号或者密码错误');
             }
         }
+
     }
+
 
     /**
      * 添加/取消 收藏

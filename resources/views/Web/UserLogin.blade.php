@@ -115,12 +115,11 @@
                     data: {'telephone': $('#telephone').val(), 'password': $('#password').val()},
                     url: '{{asset('api/user/login')}}',
                     success: function (data) {
-
-                        if (data.message=='true') {
-                            alert('登录成功')
-                        } else {
-                            alert(data.data)
-                        }
+//                        if (data.message == 'true') {
+//                            alert('登录成功')
+//                        } else {
+//                            alert(data.data)
+//                        }
                     },
                     error: function () {
 

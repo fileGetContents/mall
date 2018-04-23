@@ -35,6 +35,6 @@ class Password implements Rule
      */
     public function message()
     {
-        return '密码格式不争取';
+        return '密码格式不正确';
     }
 }

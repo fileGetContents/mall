@@ -29,7 +29,7 @@ class ChatController extends Controller
      */
     public function say(Request $request)
     {
-        Gateway::sendToAll($request->input('message')); // 发送给所有人
+        Gateway::sendToAll(json_encode(['type' => 'all', 'message' => $request->input('message')])); // 发送给所有人
     }
 
 }
