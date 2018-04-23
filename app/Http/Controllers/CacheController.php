@@ -12,7 +12,9 @@ class CacheController extends Controller
      */
     public function crate()
     {
-        dump(Redis::set(15, 1000));
+        //Redis::flush();
+       dump(Redis::set(29, 500));
+     //  dump(Redis::get(17));
     }
 
 }

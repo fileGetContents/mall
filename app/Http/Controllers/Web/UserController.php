@@ -14,7 +14,6 @@ class UserController extends Controller
 
     public function index()
     {
-        var_dump($_SERVER['HTTP_HOST']);
     }
 
     public function index2()
