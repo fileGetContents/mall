@@ -48,10 +48,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 Route::any('crate', 'CacheController@crate');
 
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
-
-    Route::any('terminal', 'TerminalController@Terminal');
-
-
+    Route::any('index', 'ChatController@index');
+    Route::any('say', 'ChatController@say');
 });
 
 

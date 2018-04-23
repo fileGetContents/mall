@@ -7,13 +7,14 @@ use App\Models;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Log;
+
 class UserController extends Controller
 {
     private $file = 'Web.User';
 
     public function index()
     {
-
+        var_dump($_SERVER['HTTP_HOST']);
     }
 
     public function index2()

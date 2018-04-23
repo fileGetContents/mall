@@ -44,7 +44,6 @@ class OrderController extends Controller
                 // 清楚关于这份清单的缓存
                 Redis::del($input['good_id']);
                 return parent::success();
-
             } else {
                 return parent::error('订单创建失败');
             }
@@ -80,6 +79,14 @@ class OrderController extends Controller
             dump(Redis::lpush('userList' . $id, serialize(['user_id' => $Uid, 'num' => $buyNum])));
             // 开始移除底部并删除
             dump(Redis::lrange('userList' . $id, 0, 100));
+
+
+
+
+
+
+
+
             $info = Redis::bpop('userList' . $id);
 //            dump($info);
         } else {

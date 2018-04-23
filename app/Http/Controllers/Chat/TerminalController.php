@@ -8,10 +8,4 @@ use App\Http\Controllers\Controller;
 class TerminalController extends Controller
 {
 
-    public function terminal()
-    {
-        return view('Chat.Terminal');
-    }
-
-
 }
