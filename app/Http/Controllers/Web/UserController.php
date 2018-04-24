@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Log;
 use App\Methods\Coupon;
 
@@ -14,7 +15,11 @@ class UserController extends Controller
 
     public function index()
     {
-
+        // dump(Models\User::find(2));
+        $user = new Models\User();
+        $user->setConnection('mysql2');
+        $data = $user->find(3);
+        dump($data->user_nickname);
     }
 
     public function index2()
