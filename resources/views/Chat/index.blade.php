@@ -222,8 +222,30 @@
         ws.onmessage = function (e) {
             var data = JSON.parse(e.data),
                     type = data.type || '';
+            console.log(e);
             switch (type) {
                 case  'all':
+                    addMessage(data.message);
+                    break;
+                case 'init':
+                    $.ajax({
+                        type: 'post',
+                        data: {'client_id': data.client_id},
+                        dataType: 'json',
+                        url: '{{URL('chat/bindUid')}}',
+                        success: function () {
+                        },
+                        error: function () {
+                        }
+                    });
+                    break;
+                case 'new':
+                    addMessage(data.message);
+                    break;
+                case 'client':
+                    addMessage(data.message);
+                    break;
+                case 'self':
                     addMessage(data.message);
                     break;
             }
@@ -245,9 +267,9 @@
             type: 'post',
             dataType: 'json',
             url: '{{URL('chat/say')}}',
-            data: {'message': $('#dope').val()},
+            data: {'message': $('#dope').val(), 'uid': ''},
             success: function (data) {
-
+                console.log(data);
             },
             error: function (data) {
 

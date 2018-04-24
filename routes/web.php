@@ -48,8 +48,10 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 Route::any('crate', 'CacheController@crate');
 
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
-    Route::any('index', 'ChatController@index');
-    Route::any('say', 'ChatController@say');
+    Route::any('index', 'ChatController@index');                                   // 界面展示
+    Route::any('say', 'ChatController@say');                                      // 推送接口
+    Route::any('bindUid', 'ChatController@bindUid');                              // 绑定id
+    Route::any('getUserList', 'ChatController@getUserList');                      // 获取在线人数
 });
 
 

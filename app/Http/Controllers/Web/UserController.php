@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
 use Log;
+use App\Methods\Coupon;
 
 class UserController extends Controller
 {
@@ -14,10 +14,12 @@ class UserController extends Controller
 
     public function index()
     {
+
     }
 
     public function index2()
     {
+
     }
 
 
