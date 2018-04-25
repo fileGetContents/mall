@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Chat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GatewayClient\Gateway; // 引入Gateway类
+use App\Methods\Conversion;
 
 class ChatController extends Controller
 {
@@ -40,7 +41,7 @@ class ChatController extends Controller
     }
 
     /**
-     *
+     * 绑定信息
      * @param Request $request
      * @throws \Exception
      */
@@ -55,13 +56,17 @@ class ChatController extends Controller
         Gateway::bindUid($request->input('client_id'), $uid);
         session(['client_id' => $request->input('client_id')]);
         Gateway::setSession($request->input('client_id'), ['name' => $uid]);
-        Gateway::sendToAll(json_encode(['type' => 'new', 'message' => $uid])); // 发送加入信息
+        Gateway::sendToAll(json_encode(['type' => 'new', 'message' => '欢迎' . $uid . '加入'])); // 发送加入信息
     }
 
+    /**
+     * 更新用户列表
+     */
     public function getUserList()
     {
         $all = Gateway::getAllClientSessions();
-        dump($all);
+        return json_encode(Conversion::clientSessionConversion($all));
     }
+
 
 }
