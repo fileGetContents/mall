@@ -9,7 +9,6 @@ use App\Methods\Conversion;
 
 class ChatController extends Controller
 {
-    private static $file = 'Chat.';
 
 //    public function __construct()
 //    {
@@ -22,7 +21,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        return view(static::$file . 'index');
+        return view(static::$CHAT . 'index');
     }
 
     /**
@@ -67,6 +66,4 @@ class ChatController extends Controller
         $all = Gateway::getAllClientSessions();
         return json_encode(Conversion::clientSessionConversion($all));
     }
-
-
 }

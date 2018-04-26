@@ -15,11 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        // dump(Models\User::find(2));
-        $user = new Models\User();
-        $user->setConnection('mysql2');
-        $data = $user->find(3);
-        dump($data->user_nickname);
+      echo   encrypt('123456');
     }
 
     public function index2()

@@ -48,10 +48,16 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 Route::any('crate', 'CacheController@crate');
 
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
-    Route::any('index', 'ChatController@index');                                   // 界面展示
+    Route::any('index', 'ChatController@index');                                  // 界面展示
     Route::any('say', 'ChatController@say');                                      // 推送接口
     Route::any('bindUid', 'ChatController@bindUid');                              // 绑定id
     Route::any('getUserList', 'ChatController@getUserList');                      // 获取在线人数
+
+    Route::any('login', 'LoginController@login');                                 // 登录
+    Route::post('loginRequest', 'LoginController@loginRequest');                  // 登录请求
+    Route::get('lists', 'RoomController@lists');                                  // 房间列表
+    Route::get('room/{id?}', 'RoomController@room');                              // 房间
+    Route::post('bindAndGroup', 'ServerController@bindAndGroup');                 // 加入房间准备程序
 });
 
 
