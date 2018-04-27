@@ -7,7 +7,7 @@ class Events
     public static function onConnect($client_id)
     {
         Gateway::sendToClient($client_id, json_encode(array(
-            'type'      => 'init',
+            'type' => 'init',
             'client_id' => $client_id
         )));
     }
@@ -30,15 +30,7 @@ class Events
      */
     public static function onClose($client_id)
     {
-        // 房间广播有连接关闭的信号
-        $room_id = $_SESSION['room_id'];
-        $uname   = $_SESSION['uname'];
-
-        if (Gateway::getClientCountByGroup($room_id)) {
-            Gateway::sendToGroup($room_id, json_encode(array(
-                'type'      => 'close',
-                'uname'     => $uname
-            )));
-        }   
+        $room_id = session('room_id');
+        Gateway::sendToGroup($room_id, json_encode(['type' => 'group', 'message' => 44444444444]));
     }
 }

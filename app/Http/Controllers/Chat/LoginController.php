@@ -32,6 +32,6 @@ class LoginController extends Controller
             return static::error('密码错误');
         }
         session(['id' => $user->id, 'name' => $user->name]);
-        return static::success('https://www.baidu.com');
+        return static::success(url('room/lists'));
     }
 }
