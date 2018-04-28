@@ -59,6 +59,7 @@ Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
     Route::get('room/{id?}', 'RoomController@room');                              // 房间
     Route::post('bindAndGroup', 'ServerController@bindAndGroup');                 // 加入房间准备程序
     Route::any('getUserLists', 'ServerController@getUserLists');                  // 获取在线用户信息
+    Route::get('test', 'ServerController@test');                                  //
 });
 
 

@@ -17,10 +17,8 @@ class RoomController extends Controller
         ]);
     }
 
-
     public function room(Request $request)
     {
-
         return view(static::$CHAT . 'room', ['roomId' => $request->id]);
     }
 

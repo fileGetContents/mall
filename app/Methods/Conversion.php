@@ -11,12 +11,11 @@ class Conversion
      */
     public static function clientSessionConversion($array = array())
     {
+        $return = [];
         foreach ($array as $key => $value) {
             $value['client_id'] = $key;
             $return[] = $value;
         }
         return $return;
     }
-
-
 }

@@ -32,6 +32,6 @@ class LoginController extends Controller
             return static::error('密码错误');
         }
         session(['id' => $user->id, 'name' => $user->name]);
-        return static::success(url('room/lists'));
+        return static::success(url('chat/room/lists'));
     }
 }

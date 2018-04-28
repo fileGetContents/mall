@@ -1,5 +1,6 @@
 <?php
 use \GatewayWorker\Lib\Gateway;
+use Redis;
 
 class Events
 {
@@ -30,7 +31,6 @@ class Events
      */
     public static function onClose($client_id)
     {
-        $room_id = session('room_id');
-        Gateway::sendToGroup($room_id, json_encode(['type' => 'group', 'message' => 44444444444]));
+
     }
 }
