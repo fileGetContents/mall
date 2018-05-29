@@ -10,9 +10,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 Route::group(['namespace' => 'Web'], function () {
     Route::get('user/registered', 'UserController@registered');
     Route::get('user', 'UserController@index');
@@ -24,7 +24,12 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('personal/address', 'PersonalController@address');
 
     Route::get('good/detailed/{id?}', 'GoodController@detailed');
+
+    Route::get('/', 'IndexController@index');
+
 });
+
+
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('assit/getCaptcha', 'AssitController@getCaptcha');
     Route::any('assit/valCaptcha', 'AssitController@valCaptcha');
@@ -46,7 +51,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
 
 Route::any('crate', 'CacheController@crate');
-
+// 聊天体系 待完善
 Route::group(['namespace' => 'Chat', 'prefix' => 'chat'], function () {
     Route::any('index', 'ChatController@index');                                  // 界面展示
     Route::any('say', 'ChatController@say');                                      // 推送接口
