@@ -278,6 +278,9 @@
                     data: {
                         code: function () {
                             return $('#image_captcha').val();
+                        },
+                        mobile: function () {
+                            return $('#phone').val()
                         }
                     },
                     complete: function (data) {
@@ -293,9 +296,13 @@
                 },
                 minlength: 6,
                 remote: {
-                    url: '',
-                    type: '',
-                    data:
+                    url: '{{url('api/interface/noteValidate')}}',
+                    type: 'post',
+                    data: {
+                        code: function () {
+                            return $('#sms_captcha').val();
+                        }
+                    }
                 }
             }
         },
@@ -312,7 +319,8 @@
             },
             sms_captcha: {
                 required: '<i class="icon-exclamation-sign"></i>请输入六位短信动态码',
-                minlength: '<i class="icon-exclamation-sign"></i>请输入六位短信动态码'
+                minlength: '<i class="icon-exclamation-sign"></i>请输入六位短信动态码',
+                remote: '<i class="icon-exclamation-sign"></i>短信验证码错误'
             }
         }
     });

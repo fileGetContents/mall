@@ -31,7 +31,7 @@ class InterfaceController extends Controller
      */
     public static function noteValidate(Request $request)
     {
-        if (session('code') == $request->input('code')) {
+        if (session('code') == $request->input('code') && session('mobile') == $request->input('mobile')) {
             return 'true';
         }
         return 'false';

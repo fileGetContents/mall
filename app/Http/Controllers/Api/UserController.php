@@ -11,6 +11,7 @@ class UserController extends Controller
 {
 
     /**
+     * 检测是否存在
      * @param Request $request
      * @return 检测是否存在
      */
@@ -24,6 +25,16 @@ class UserController extends Controller
             return 'true';
         }
         return 'false';
+    }
+
+    /**
+     *创建一个新的用户
+     * @param Request $request
+     * @return 创建一个新的用户
+     */
+    public static function newUser(Request $request)
+    {
+
     }
 
 

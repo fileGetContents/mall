@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
     Route::group(['prefix' => 'interface'], function () {
         Route::post('seedNoteValidate', 'InterfaceController@seedNoteValidate');
+        Route::post('noteValidate', 'InterfaceController@noteValidate');
     });
 });
 
