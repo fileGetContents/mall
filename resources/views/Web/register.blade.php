@@ -16,7 +16,7 @@
 <body>
 <div class="header-wrap">
     <header class="public-head-layout wrapper">
-        <h1 class="site-logo"><a href="http://localhost/v4/shop"><img src="/css/logo.png" class="pngFix"></a></h1>
+        <h1 class="site-logo"><a href="http://localhost/v4/shop"><img src="/images/logo.png" class="pngFix"></a></h1>
         <div class="nc-login-now">我已经注册，现在就
             <a href="http://localhost/v4/shop/index.php?act=login&amp;op=index&amp;ref_url=" title="" class="register">登录</a>
         </div>
@@ -53,7 +53,7 @@
                                         </dd>
                                     </dl>
                                     <span><img src="{{url('api/getCaptcha')}}" name="codeimage" id="sms_codeimage">
-                                        <a class="makecode">看不清，换一张</a></span>
+                                        <a id="makecode" class="makecode">看不清，换一张</a></span>
                                 </div>
                                 <div class="tiptext" id="sms_text">确保上方验证码输入正确，点击<span>
                                         <a id="note" href="javascript:void(0);">
@@ -241,12 +241,31 @@
 
 <script src="/js/jquery.js"></script>
 <script src="/js/jquery.validation.min.js"></script>
+<script src="/js/layer-v3.1.1/layer.js"></script>
 <script type="text/javascript">
     jQuery.validator.addMethod('mobile', function (value, element) {
         var tel = /^1[34578]\d{9}$/;
         return this.optional(element) || (tel.test(value));
     }, '请输入11位正确手机号码');
     $('#post_form').validate({
+        submitHandler: function (from) {
+            $.ajax({
+                type: 'post',
+                data: {'mobile': $('#phone').val(), 'code': $('#sms_captcha').val()},
+                dataType: 'json',
+                url: "{{url('api/user/newUser')}}",
+                success: function (data) {
+                    if (data.message == 'success') {
+                        layer.msg('注册成功')
+                    } else {
+                        layer.msg(data.data);
+                    }
+                },
+                error: function () {
+
+                }
+            })
+        },
         errorPlacement: function (error, element) {
             var error_td = element.parent('dd');
             error_td.append(error);
@@ -301,6 +320,9 @@
                     data: {
                         code: function () {
                             return $('#sms_captcha').val();
+                        },
+                        mobile: function () {
+                            return $('#phone').val();
                         }
                     }
                 }
@@ -334,11 +356,13 @@
 
             },
             error: function () {
-
             }
-        })
-    })
+        });
 
+    });
+    $('#makecode').click(function () {
+        $('#sms_codeimage').attr('src', '{{url('api/getCaptcha')}}?id=' + Math.random())
+    });
 </script>
 </body>
 </html>

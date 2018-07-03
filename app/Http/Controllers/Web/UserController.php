@@ -13,4 +13,9 @@ class UserController extends Controller
         return view('Web.register');
     }
 
+    public function login()
+    {
+        return view('Web.login');
+    }
+
 }

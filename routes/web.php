@@ -13,6 +13,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('register', 'UserController@register');
+        Route::get('login', 'UserController@login');
     });
 });
 
@@ -23,6 +24,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
 
     Route::group(['prefix' => 'user'], function () {
         Route::post('existMobile', 'UserController@existMobile');
+        Route::post('newUser', 'UserController@newUser');
     });
 
     Route::group(['prefix' => 'interface'], function () {

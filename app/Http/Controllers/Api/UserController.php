@@ -32,9 +32,17 @@ class UserController extends Controller
      * @param Request $request
      * @return 创建一个新的用户
      */
-    public static function newUser(Request $request)
+    public function newUser(Request $request)
     {
-
+        $mobile = User::where('user_mobile', $request->input('mobile'))->first(['user_mobile']);
+        if (is_null($mobile)) {
+            $bool = User::create(['user_mobile' => $request->input('mobile')]);
+            if ($bool) {
+                return parent::success();
+            }
+            return parent::error('注册失败');
+        }
+        return parent::error('已存在该用户');
     }
 
 
