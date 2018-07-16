@@ -17,15 +17,19 @@ class InterfaceController extends Controller
      */
     public function seedNoteValidate(Request $request)
     {
-        $this->validate($request, ['mobile' => ['required', new Mobile()]]);
-        $mobile = User::where('user_mobile', $request->input('mobile'))->first(['user_mobile']);
-        if (is_null($mobile)) {
-            $code = rand(10000, 999999);
-            session(['code' => $code, 'mobile' => $request->input('mobile'), 'time' => $_SERVER['REQUEST_TIME']]);
-            NoteLog::create(['note_mobile' => $request->input('mobile'), 'note_time' => $_SERVER['REQUEST_TIME'], 'note_explain' => '注册短信验证']);
-            return static::success($code);
+        $this->validate($request, ['mobile' => ['required', new Mobile()], 'code' => ['required']]);
+        if (strtoupper($request->input('code')) !== strtoupper(session('code'))) {
+            return static::error('图像验证码错误');
         }
-        return static::error();
+        if ($request->session()->has('NoteTime')) {
+            if (intval(session('NoteTime')) + 60 > $_SERVER['REQUEST_TIME']) {
+                return static::error('1分钟内不能重复发送短信');
+            }
+        }
+        $code = rand(10000, 999999);
+        session(['NoteCode' => $code, 'mobile' => $request->input('mobile'), 'NoteTime' => $_SERVER['REQUEST_TIME']]);
+        NoteLog::create(['note_mobile' => $request->input('mobile'), 'note_time' => $_SERVER['REQUEST_TIME'], 'note_explain' => '短信验证']);
+        return static::success($code);
     }
 
     /**
@@ -35,7 +39,7 @@ class InterfaceController extends Controller
      */
     public static function noteValidate(Request $request)
     {
-        if (session('code') == $request->input('code') && session('mobile') == $request->input('mobile')) {
+        if (session('NoteCode') == $request->input('NoteCode') && session('mobile') == $request->input('mobile')) {
             return 'true';
         } else {
             return 'false';

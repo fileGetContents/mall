@@ -238,7 +238,6 @@
     </p>
     Copyright 2015 <a href="http://bbs.33hao.com/" target="_blank">好商城</a> All rights reserved.<br>本演示来源于<a
             href="http://33haocom.taobao.com/" target="_blank">bbs.33hao.com</a><br></div>
-
 <script src="/js/jquery.js"></script>
 <script src="/js/jquery.validation.min.js"></script>
 <script src="/js/layer-v3.1.1/layer.js"></script>
@@ -256,7 +255,7 @@
                 url: "{{url('api/user/newUser')}}",
                 success: function (data) {
                     if (data.message == 'success') {
-                        layer.msg('注册成功')
+                        layer.msg('恭喜注册成功');
                     } else {
                         layer.msg(data.data);
                     }
@@ -318,7 +317,7 @@
                     url: '{{url('api/interface/noteValidate')}}',
                     type: 'post',
                     data: {
-                        code: function () {
+                        NoteCode: function () {
                             return $('#sms_captcha').val();
                         },
                         mobile: function () {
@@ -349,13 +348,18 @@
     $('#note').click(function () {
         $.ajax({
             type: 'post',
-            data: {'mobile': $('#phone').val()},
+            data: {'mobile': $('#phone').val(), 'code': $('#image_captcha').val()},
             dataType: 'json',
             url: '{{url('api/interface/seedNoteValidate')}}',
             success: function (data) {
-
+                if (data.message == 'success') {
+                    layer.msg('短信发送成功');
+                } else {
+                    layer.msg(data.data);
+                }
             },
             error: function () {
+
             }
         });
 
