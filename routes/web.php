@@ -16,6 +16,9 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('login', 'UserController@login');      // 用户登录
         Route::get('test', 'UserController@test');
     });
+    Route::group(['prefix' => 'personal'], function () {
+        Route::get('baseInfo', 'PersonalController@baseInfo'); // 用户基础信息
+    });
 });
 
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {

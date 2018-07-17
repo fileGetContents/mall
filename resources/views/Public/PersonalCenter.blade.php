@@ -7,10 +7,10 @@
     <meta name="keywords" content="好商城V4">
     <meta name="description" content="好商城V4">
     <link rel="shortcut icon" href="http://127.0.0.1/v4/favicon.ico">
-    <link href="/css/base.css" rel="stylesheet" type="text/css">
-    <link href="/css/home_header.css" rel="stylesheet" type="text/css">
-    <link href="/csss/font-awesome.min.css" rel="stylesheet">
-    <link href="/js/dialog.css" rel="stylesheet" type="text/css">
+    {{--<link href="/css/base.css" rel="stylesheet" type="text/css">--}}
+    {{--<link href="/css/home_header.css" rel="stylesheet" type="text/css">--}}
+    {{--<link href="/csss/font-awesome.min.css" rel="stylesheet">--}}
+    {{--<link href="/js/dialog.css" rel="stylesheet" type="text/css">--}}
     <link href="/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
     <link href="/css/jquery.qtip.min.css" rel="stylesheet" type="text/css">
     <link href="/css/member.css" rel="stylesheet" type="text/css">
@@ -2418,6 +2418,8 @@
         </ul>
     </div>
 </nav>
+
+
 <div class="nch-breadcrumb-layout">
     <div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
         <span><a href="http://127.0.0.1/v4/shop">首页</a></span><span class="arrow">&gt;</span>
@@ -2885,6 +2887,8 @@
     </div>
     <div class="clear"></div>
 </div>
+
+
 <div id="faq">
     <div class="faq-wrapper">
         <ul>
@@ -3060,11 +3064,7 @@
     </p>
     Copyright 2015 <a href="http://bbs.33hao.com/" target="_blank">好商城</a> All rights
     reserved.<br>本演示来源于<a href="http://33haocom.taobao.com/" target="_blank">bbs.33hao.com</a><br></div>
-
-<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-
-</div>
-
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
 <script src="/js/jquery.js"></script>
 <script src="/js/common.js" charset="utf-8"></script>
 <script src="/js/jquery.ui.js"></script>
@@ -3128,6 +3128,26 @@
                 return false;
             }
         });
+        $('#activator').click(function () {
+            $('#content-cart').animate({'right': '-250px'});
+            $('#content-compare').animate({'right': '-250px'});
+            $('#vToolbar').animate({'right': '-60px'}, 300,
+                    function () {
+                        $('#ncHideBar').animate({'right': '59px'}, 300);
+                    });
+            $('div[nctype^="bar"]').hide();
+        });
+        $('#ncHideBar').click(function () {
+            $('#ncHideBar').animate({
+                        'right': '-86px'
+                    },
+                    300,
+                    function () {
+                        $('#content-cart').animate({'right': '-250px'});
+                        $('#content-compare').animate({'right': '-250px'});
+                        $('#vToolbar').animate({'right': '6px'}, 300);
+                    });
+        });
     });
 </script>
 <script type="text/javascript">
@@ -3156,26 +3176,7 @@
     //动画显示边条内容区域
     $(function () {
         $(function () {
-            $('#activator').click(function () {
-                $('#content-cart').animate({'right': '-250px'});
-                $('#content-compare').animate({'right': '-250px'});
-                $('#vToolbar').animate({'right': '-60px'}, 300,
-                        function () {
-                            $('#ncHideBar').animate({'right': '59px'}, 300);
-                        });
-                $('div[nctype^="bar"]').hide();
-            });
-            $('#ncHideBar').click(function () {
-                $('#ncHideBar').animate({
-                            'right': '-86px'
-                        },
-                        300,
-                        function () {
-                            $('#content-cart').animate({'right': '-250px'});
-                            $('#content-compare').animate({'right': '-250px'});
-                            $('#vToolbar').animate({'right': '6px'}, 300);
-                        });
-            });
+
         });
         $("#compare").click(function () {
             if ($("#content-compare").css('right') == '-250px') {
