@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\IdCard;
 use App\Models\NoteLog;
 use App\Models\User;
 use App\Rules\Mobile;
@@ -44,6 +45,25 @@ class InterfaceController extends Controller
         } else {
             return 'false';
         }
+    }
+
+    /**
+     * 身份认证接口
+     * @param Request $request
+     * @return string|身份认证接口查询
+     */
+    public function idCard(Request $request)
+    {
+        $card = IdCard::select(IdCard::$filed)->where(['card_idcard' => $request->input('idcard')])->first();
+        if (is_null($card)) {
+            $card = IdCard::queryApi();
+        }
+        $card->card_idcard = $request->input('idcard');
+        IdCard::create(get_object_vars($card));
+        if ($request->input('name') == $card->card_name) {
+            return 'true';
+        }
+        return 'true';
     }
 
 }

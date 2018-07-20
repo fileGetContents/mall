@@ -106,7 +106,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .pic-cut-120 { width: 652px; margin: 30px auto;}
 .pic-cut-100 .work-title, .pic-cut-120 .work-title { font-size: 12px; line-height: 20px; text-align: center; width: 500px; position: absolute; z-index: 1; top: 0; left: 0;}
 .pic-cut-100 .work-layer, .pic-cut-120 .work-layer { background: #FFF; padding: 1px; border: dashed 1px #777; position: absolute; z-index: 1; top: 20px; left:0;}
-.pic-cut-100 .work-layer p, .pic-cut-120 .work-layer p { background: url(../images/member/cut_bg.png) repeat 0 0; display: block; width: 500px; height: 500px; overflow: hidden;}
+.pic-cut-100 .work-layer p, .pic-cut-120 .work-layer p { background: url(/images/cut_bg.png) repeat 0 0; display: block; width: 500px; height: 500px; overflow: hidden;}
 .pic-cut-100 .thumb-layer, .pic-cut-120 .thumb-layer { padding: 1px; border: dashed 1px #777; position: absolute; z-index: 1; top: 20px; right: 0;}
 .pic-cut-100 .thumb-layer p { width: 100px; height: 100px; overflow: hidden;}
 .pic-cut-120 .thumb-layer p { width: 120px; height: 120px; overflow: hidden;}
@@ -159,7 +159,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .jcarousel-direction-rtl .jcarousel-item-horizontal { margin-right: 0;}
 .jcarousel-item-placeholder { background: #fff; color: #000;}
 .jcarousel-prev-horizontal,
-.jcarousel-next-horizontal { background: transparent url(../images/member/member_pics.png) no-repeat; width: 9px; height: 16px; padding: 10px 13px; position: absolute; z-index: 9; top: 50%; cursor: pointer;}
+.jcarousel-next-horizontal { background: transparent url(/images/member_pics.png) no-repeat; width: 9px; height: 16px; padding: 10px 13px; position: absolute; z-index: 9; top: 50%; cursor: pointer;}
 .jcarousel-prev-horizontal { background-position: -240px -40px; left: 0; }
 .jcarousel-prev-horizontal:hover, 
 .jcarousel-prev-horizontal:focus,
@@ -201,12 +201,12 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-l-top { background-color: #EC4F4A; width: 100%; height: 40px; position: relative; z-index: 3;}
 .ncm-l-top h2 a { font-size: 14px; font-weight: 600; color: #FFF; height: 20px; float: left; padding: 10px 0 10px 20px;}
 .ncm-l-top h2 a:hover { text-decoration: none;}
-.ncm-l-top .set-btn { background: url(../images/member/member_pics.png) no-repeat 0 0; display: block; width: 20px; height: 20px; float: right; margin: 10px;}
-.set-container-arrow { background: url(../images/member/member_pics.png) no-repeat -50px 0; display: none; width: 10px; height: 19px; position: absolute; z-index: 2; top: 10px; left: 205px;}
+.ncm-l-top .set-btn { background: url(/images/member_pics.png) no-repeat 0 0; display: block; width: 20px; height: 20px; float: right; margin: 10px;}
+.set-container-arrow { background: url(/images/member_pics.png) no-repeat -50px 0; display: none; width: 10px; height: 19px; position: absolute; z-index: 2; top: 10px; left: 205px;}
 .set-container { background-color: #FFF; display: none; min-width: 530px; padding: 4px; border: solid 1px #E7E7E7; position: absolute; z-index: 1; top: -10px; left: 214px; box-shadow: 3px 3px 0 rgba(153,153,153,0.1);}
 .set-container .title { width: 98%; height: 32px; margin: 0 auto; border-bottom: solid 1px #F5F5F5;}
 .set-container .title h3 { font-size: 14px; line-height: 32px; font-weight: 600; color: #333; float: left; margin-left: 8px;}
-.set-container .title .close-btn { background: url(../images/member/member_pics.png) no-repeat -30px 0; width: 17px; height: 17px; float: right; margin: 7px 3px auto auto;}
+.set-container .title .close-btn { background: url(/images/member_pics.png) no-repeat -30px 0; width: 17px; height: 17px; float: right; margin: 7px 3px auto auto;}
 .set-container .tip { background-color: #F7F7F7; padding: 4px 8px; margin: 10px;}
 .set-container .tip a { color: #005AA0; text-decoration: underline; margin-left: 4px;}
 .set-container .menu-list { font-size: 0; *word-spacing:-1px/*IE6、7*/; width: 98%; margin: 0 auto;}
@@ -223,7 +223,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 
 .ncm-user-info { background-color: #FD6760; padding: 15px 20px; overflow: hidden;}
 .ncm-user-info .avatar { width: 72px; height: 72px; float: left; position: relative; z-index: 1;}
-.ncm-user-info .avatar .frame { background: url(../images/member/member_pics.png) no-repeat 0 -30px; width: 72px; height: 72px; position: absolute; z-index: 2; top: 0; left: 0;}
+.ncm-user-info .avatar .frame { background: url(/images/member_pics.png) no-repeat 0 -30px; width: 72px; height: 72px; position: absolute; z-index: 2; top: 0; left: 0;}
 .ncm-user-info .avatar img { width: 64px; height: 64px; position: absolute; z-index: 1; top: 4px; left: 4px;}
 .ncm-user-info .new-message { font: 600 12px/16px Arial; color: #FFF; background-color: #EC4F4A; text-align: center; min-width: 16px; height: 16px; border: solid 2px #FFF;  border-radius: 8px;position: absolute; z-index: 3; top: 0; right: 4px;}
 .ncm-user-info .handle { width: 80px; float: right;}
@@ -235,10 +235,10 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 
 .ncm-sidebar { background-color: #FFF; margin-top: 6px; border: solid 1px #E7E7E7;}
 .ncm-sidebar li.side-menu { width: 100%; margin: 0; border-bottom: dotted 1px #E7E7E7; overflow: hidden;}
-.ncm-sidebar li.side-menu a { background: url(../images/member/member_pics.png) no-repeat -10px -180px; display: block; margin: 12px; cursor: pointer;}
+.ncm-sidebar li.side-menu a { background: url(/images/member_pics.png) no-repeat -10px -180px; display: block; margin: 12px; cursor: pointer;}
 .ncm-sidebar li.side-menu a:hover { text-decoration: none;}
 .ncm-sidebar li.side-menu a.shrink { background-position: -10px -200px;}
-.ncm-sidebar li.side-menu a h3 { font-size: 14px; font-weight: 600; color: #333; line-height: 20px; background: url(../images/member/member_pics.png) no-repeat -498px 9px; height: 20px; padding-left: 7px; display: block;}
+.ncm-sidebar li.side-menu a h3 { font-size: 14px; font-weight: 600; color: #333; line-height: 20px; background: url(/images/member_pics.png) no-repeat -498px 9px; height: 20px; padding-left: 7px; display: block;}
 .ncm-sidebar .side-menu ul { margin-bottom: 10px;}
 .ncm-sidebar .side-menu ul li { width: 100%; }
 .ncm-sidebar .side-menu ul li a { background: none; line-height: 20px; color: #777; width: auto; padding: 6px 0 6px 20px; margin: 0;}
@@ -252,10 +252,10 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 
 .ncm-quick-menu { background: #FF966E !important; margin-top: 0!important; border: none;}
 .ncm-quick-menu li.side-menu-quick { background: #FF966E; width: 100%; margin: 0; overflow: hidden;}
-.ncm-quick-menu li.side-menu-quick a { background: url(../images/member/member_pics.png) no-repeat -10px -220px; display: block; margin: 12px; cursor: pointer;}
+.ncm-quick-menu li.side-menu-quick a { background: url(/images/member_pics.png) no-repeat -10px -220px; display: block; margin: 12px; cursor: pointer;}
 .ncm-quick-menu li.side-menu-quick a:hover { text-decoration: none;}
 .ncm-quick-menu li.side-menu-quick a.shrink { background-position: -10px -200px;}
-.ncm-quick-menu li.side-menu-quick a h3 { font-size: 14px; font-weight: 600; color: #FFF; line-height: 20px; background: url(../images/member/member_pics.png) no-repeat -498px -21px; height: 20px; padding-left: 7px; display: block;}
+.ncm-quick-menu li.side-menu-quick a h3 { font-size: 14px; font-weight: 600; color: #FFF; line-height: 20px; background: url(/images/member_pics.png) no-repeat -498px -21px; height: 20px; padding-left: 7px; display: block;}
 .ncm-quick-menu .side-menu-quick ul { margin-bottom: 10px;}
 .ncm-quick-menu .side-menu-quick ul li { width: 100%; }
 .ncm-quick-menu .side-menu-quick ul li a { background: none; line-height: 20px; color: #FFF; width: auto; padding: 4px 0 4px 20px; margin: 0;}
@@ -287,7 +287,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-index-container .user-account li a { display: block; height: 100px; padding: 10px 0;}
 .ncm-index-container .user-account li a:hover { text-decoration: none;}
 .ncm-index-container .user-account li h5 { color: #666;}
-.ncm-index-container .user-account li .icon { background: url(../images/member/member_pics.png) no-repeat; display: inline-block; *display: inline/*IE7*/; width: 32px; height:32px; margin: 5px auto; *zoom: 1/*IE7*/;}
+.ncm-index-container .user-account li .icon { background: url(/images/member_pics.png) no-repeat; display: inline-block; *display: inline/*IE7*/; width: 32px; height:32px; margin: 5px auto; *zoom: 1/*IE7*/;}
 .ncm-index-container .user-account #pre-deposit .icon { background-position: -240px 0;}
 .ncm-index-container .user-account #voucher .icon { background-position: -275px 0;}
 .ncm-index-container .user-account #points .icon { background-position: -310px 0;}
@@ -300,7 +300,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-index-container #normal strong { color: #F60;}
 .ncm-index-container #low strong { color: #F33;}
 .ncm-index-container .SAM-info span { font-size: 0; line-height: 12px; background-color: #EEE; vertical-align: middle; display: inline-block; *display: inline/*IE7*/; width: 200px; height: 12px; border-radius: 6px; position: relative; z-index: 1; box-shadow: inset 1px 1px 1px rgba(204,204,204,1); *zoom: 1/*IE7*/;}
-.ncm-index-container .SAM-info em { font-size: 0; line-height: 12px; background: url(../images/member/member_pics.png) no-repeat 0 -140px; display: block; height: 12px; position: absolute; z-index: 1; *zoom: 1/*IE7*/;}
+.ncm-index-container .SAM-info em { font-size: 0; line-height: 12px; background: url(/images/member_pics.png) no-repeat 0 -140px; display: block; height: 12px; position: absolute; z-index: 1; *zoom: 1/*IE7*/;}
 .ncm-index-container #high span em { width: 100%; border-radius: 6px;}
 .ncm-index-container #normal span em { width: 66.6666%; border-radius: 6px 0 0 6px;}
 .ncm-index-container #low span em { width: 33.3333%; border-radius: 6px 0 0 6px;}
@@ -308,7 +308,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 
 .ncm-index-container .SAM-handle {}
 .ncm-index-container .SAM-handle span { color: #666; display: inline-block; *display: inline/*IE7*/; width: 48%; height: 20px; *zoom: 1/*IE7*/;}
-.ncm-index-container .SAM-handle i { background: url(../images/member/member_pics.png) no-repeat; vertical-align: middle; display: inline-block; *display: inline/*IE7*/; width: 20px; height: 20px; *zoom: 1/*IE7*/;}
+.ncm-index-container .SAM-handle i { background: url(/images/member_pics.png) no-repeat; vertical-align: middle; display: inline-block; *display: inline/*IE7*/; width: 20px; height: 20px; *zoom: 1/*IE7*/;}
 .ncm-index-container .SAM-handle i.mobile { background-position: -90px 0; margin-right: 4px;}
 .ncm-index-container .SAM-handle i.mail { background-position: -110px 0; margin-right: 6px;}
 .ncm-index-container .SAM-handle a { color: #FF966E;}
@@ -323,7 +323,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-index-container .null-tip { text-align: center; margin: 40px auto auto;}
 .ncm-index-container #transaction .null-tip,
 .ncm-index-container #shopping .null-tip { margin: 70px auto auto;}
-.ncm-index-container .null-tip dt { background: url(../images/member/member_pics.png) no-repeat; display: inline-block; *display: inline/*IE7*/; width: 50px; height: 50px; margin: 0 auto; *zoom: 1/*IE7*/;}
+.ncm-index-container .null-tip dt { background: url(/images/member_pics.png) no-repeat; display: inline-block; *display: inline/*IE7*/; width: 50px; height: 50px; margin: 0 auto; *zoom: 1/*IE7*/;}
 .ncm-index-container #transaction dt { background-position: -80px -30px;}
 .ncm-index-container #shopping dt { background-position: -130px -30px;}
 .ncm-index-container #favoritesGoods dt,
@@ -509,7 +509,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .warning-option i, .warning-option span { *display: inline/*IE6,7*/;}
 
 /* 验证错误提示 */
-#warning { display: none; background: url(../images/member/warning_bg.png) no-repeat scroll 0px 0px; padding: 6px 12px 12px 100px; min-height: 60px;}
+#warning { display: none; background: url(/images/warning_bg.png) no-repeat scroll 0px 0px; padding: 6px 12px 12px 100px; min-height: 60px;}
 #warning label { display: block; margin: 4px 0 0 0;}
 #warning label.error { font-family: "microsoft yahei"; font-size: 1.4em; line-height: 20px; color: #D50000; padding-left: 12px;}
 
@@ -615,7 +615,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-order-details .content dl dd a:hover .more,
 .ncm-order-contnet .daddress-info dd a:hover .more { display: block;}
 .ncm-order-details .content dl dd a .more .arrow,
-.ncm-order-contnet .daddress-info dd a .more .arrow { background: url(../images/member/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 2px; top: -6px; right: 30px;}
+.ncm-order-contnet .daddress-info dd a .more .arrow { background: url(/images/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 2px; top: -6px; right: 30px;}
 .ncm-order-details .content dl dd a .more ul {}
 .ncm-order-details .content dl dd a .more li,
 .ncm-order-contnet .daddress-info dd a .more li { line-height: 24px; color: #888;}
@@ -640,12 +640,12 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-order-info .mall-msg a { font-weight: normal; color: #06C; margin-left: 4px;}
 .ncm-order-info .mall-msg a:hover { text-decoration: none;}
 .ncm-order-step { font-size: 0; *word-spacing:-1px/*IE6、7*/; margin-top: 30px; position: relative; z-index: 1;}
-.ncm-order-step dl { font-size: 12px; line-height: 20px; background: url(../images/member/member_pics.png) no-repeat -285px -130px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 215px; height: 36px; margin: 50px 0 60px -1px; position: relative; z-index: auto; *zoom: 1/*IE7*/;}
+.ncm-order-step dl { font-size: 12px; line-height: 20px; background: url(/images/member_pics.png) no-repeat -285px -130px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 215px; height: 36px; margin: 50px 0 60px -1px; position: relative; z-index: auto; *zoom: 1/*IE7*/;}
 .ncm-order-step dl.step-first { background-position: -240px -130px; width: 36px; margin-left: 50px;}
 .ncm-order-step dl.long { background-position: -115px -370px; width: 385px;}
 .ncm-order-step dl dt { font-weight: 600; text-align: center; width: 70px; position: absolute; z-index: 1; top: -30px; right: -12px;}
 .ncm-order-step dl.current dt { color: #FD6760;}
-.ncm-order-step dl dd.bg { background: url(../images/member/member_pics.png) no-repeat -280px -170px; display: none; width: 220px; height: 36px; position: absolute; z-index: 1; top: 0; right: 0;}
+.ncm-order-step dl dd.bg { background: url(/images/member_pics.png) no-repeat -280px -170px; display: none; width: 220px; height: 36px; position: absolute; z-index: 1; top: 0; right: 0;}
 .ncm-order-step dl.step-first dd.bg { background-position: -240px -170px; width: 36px;}
 .ncm-order-step dl.long dd.bg { background-position: -110px -410px; width: 390px;}
 .ncm-order-step dl dd.date { font: 12px/20px Tahoma, Arial; color: #999; text-align: center; display: none; width: 120px; position: absolute; z-index: 2; bottom: -40px; right: -42px;}
@@ -656,7 +656,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-order-condition .ncm-order-step dl dt { font-size: 12px; line-height: 20px; margin: 0;}
 /*线下抢订单详情页面的特殊性*/
 .ncm-order-step .code-list { font-size: 12px; background-color: #F9F9F9; width: 398px; padding: 9px; margin: -50px 0 0 400px; border: solid 1px #CCC; position: relative; z-index: 1; box-shadow: 3px 3px 0 rgba(153,153,153,0.05);}
-.ncm-order-step .code-list .arrow { background: url(../images/member/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 1; top: -6px; left: 90px;}
+.ncm-order-step .code-list .arrow { background: url(/images/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 1; top: -6px; left: 90px;}
 .ncm-order-step .code-list h5 { font-size: 14px; line-height: 16px; font-weight: 600; display: inline-block; height: 16px; padding-left: 5px; border-left: 3px solid #FD6760;}
 .ncm-order-step .code-list h5 em { font-size: 12px; color: #09C;}
 .ncm-order-step .code-list #codeList { max-height: 135px; position: relative; z-index: auto; overflow: hidden;}
@@ -847,7 +847,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-flow-item .item-order dl dd .a i { font-size: 10px; margin-left: 4px;}
 .ncm-flow-item .item-order dl dd .a .more { background-color: #FBFBFB; display: none; width: 268px; padding: 10px; border: solid 1px #CCC; position: absolute; z-index: 1; right: -5px; top: 25px; box-shadow: 2px 2px 0 rgba(153,153,153,0.15)}
 .ncm-flow-item .item-order dl dd .a:hover .more { display: block;}
-.ncm-flow-item .item-order dl dd .a .more .arrow { background: url(../images/member/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 2px; top: -6px; right: 25px;}
+.ncm-flow-item .item-order dl dd .a .more .arrow { background: url(/images/member_pics.png) no-repeat -140px 0; width: 11px; height: 6px; position: absolute; z-index: 2px; top: -6px; right: 25px;}
 .ncm-flow-item .item-order dl dd .a .more ul {}
 .ncm-flow-item .item-order dl dd .a .more li { line-height: 24px; color: #888;}
 .ncm-flow-item .item-order dl dd .a .more li span { color: #666; display: inline;}
@@ -855,7 +855,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-flow-container .title { height: 20px; padding: 10px 0; border-bottom: solid 1px #EEE;}
 .ncm-flow-container .title h3 { font-size: 14px; font-weight: 600; display: inline-block; *display: inline/*IE7*/; *zoom: 1/*IE7*/;}
 .ncm-flow-container .refund-type-box { vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 100px; height: 20px; position: relative; z-index: 2; *zoom: 1/*IE*/;}
-.ncm-flow-container .refund-type-box i { background: url(../images/member/member_pics.png) no-repeat -370px -90px; width: 17px; height: 17px; position: absolute; z-index: 1; top: 2px; right: 0;}
+.ncm-flow-container .refund-type-box i { background: url(/images/member_pics.png) no-repeat -370px -90px; width: 17px; height: 17px; position: absolute; z-index: 1; top: 2px; right: 0;}
 .ncm-flow-container .refund-type-box:hover i { background-position: -370px -107px;}
 .ncm-flow-container .refund-type-text { font-size: 14px; font-weight: 600; color: #EC4F4A; width: 100%; height: 20px; user-select: none; -webkit-user-select: none; -moz-user-select: none; position: absolute; z-index: 2; top: 0; left: 0; cursor: pointer;}
 .ncm-flow-container .refund-type-option { display: none; background: #fff; width: 100%; position: absolute; z-index: 1; top: 22px; left: -1px; border: 1px solid #CCC;}
@@ -863,11 +863,11 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-flow-container .refund-type-option li.seleced { background: #39F; color: #fff;}
 /* 流程步骤 */
 .ncm-flow-step { font-size: 0; *word-spacing:-1px/*IE6、7*/; margin-top: 30px;}
-.ncm-flow-step dl { font-size: 12px; line-height: 20px; background: url(../images/member/member_pics.png) no-repeat; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; height: 36px; margin: 50px 0 60px -1px; position: relative; z-index: -1; *zoom: 1/*IE7*/;}
+.ncm-flow-step dl { font-size: 12px; line-height: 20px; background: url(/images/member_pics.png) no-repeat; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; height: 36px; margin: 50px 0 60px -1px; position: relative; z-index: -1; *zoom: 1/*IE7*/;}
 .ncm-flow-step dl.step-first { background-position: -240px -170px !important; width: 36px !important;}
 .ncm-flow-step dl dt { font-weight: 600; color: #999; text-align: center; width: 120px; position: absolute; z-index: 1; top: -30px; right: -42px;}
 .ncm-flow-step dl.current dt { color: #FD6760;}
-.ncm-flow-step dl dd.bg { background: url(../images/member/member_pics.png) no-repeat; display: none; height: 36px; position: absolute; z-index: 1; top: 0; right: 0;}
+.ncm-flow-step dl dd.bg { background: url(/images/member_pics.png) no-repeat; display: none; height: 36px; position: absolute; z-index: 1; top: 0; right: 0;}
 .ncm-flow-step dl.step-first dd.bg { background-position: -240px -210px !important; width: 36px !important;}
 .ncm-flow-step dl.current dd { display: block;}
 /* 退款 */
@@ -922,7 +922,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .user-tag-selected span { line-height: 16px; color: #555; background-color: #FEF6CE; display:inline-block; height: 16px; padding: 2px 4px; margin: 0 18px 8px 0; outline: 1px solid #EAD483; border: 1px solid #FFF;}
 .user-tag-selected span:hover { margin: 0 2px 8px 0; cursor:default; }
 .user-tag-selected span a { display: none; }
-.user-tag-selected span:hover a { font-size: 0px; line-height: 0px; background: url(../images/member/member_pics.png) no-repeat scroll -390px -50px; vertical-align: middle; text-indent: 999%; display: inline-block; width: 12px; height: 12px; margin: auto 0 auto 4px; overflow: hidden; cursor: pointer;}
+.user-tag-selected span:hover a { font-size: 0px; line-height: 0px; background: url(/images/member_pics.png) no-repeat scroll -390px -50px; vertical-align: middle; text-indent: 999%; display: inline-block; width: 12px; height: 12px; margin: auto 0 auto 4px; overflow: hidden; cursor: pointer;}
 .user-tag-selected span:hover a:hover { background-position: -390px -65px;}
 .user-tag-selected span.ep { line-height:22px; color: #CCC; background-color: #FFF; vertical-align: top; text-align: center; width: 72px; height: 22px; padding:0; margin: 0 4px 8px 0; outline: none; border: dashed 1px #CCC; }
 
@@ -953,8 +953,8 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-security-container dl span { font-size: 12px; line-height: 20px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; height: 50px; *zoom: 1/*IE7*/;}
 .ncm-security-container dt { width: 25%;}
 .ncm-security-container dd { width: 75%;}
-.ncm-security-container dt .icon { background: url(../images/member/member_pics.png) no-repeat; width: 50px; height: 50px; position: relative; z-index: 1;}
-.ncm-security-container dt .icon i { background: url(../images/member/member_pics.png) no-repeat -330px -90px; width: 23px; height: 23px; position: absolute; z-index: 1; right: 0; bottom: 0; }
+.ncm-security-container dt .icon { background: url(/images/member_pics.png) no-repeat; width: 50px; height: 50px; position: relative; z-index: 1;}
+.ncm-security-container dt .icon i { background: url(/images/member_pics.png) no-repeat -330px -90px; width: 23px; height: 23px; position: absolute; z-index: 1; right: 0; bottom: 0; }
 .ncm-security-container #password .icon { background-position: 0 -300px;}
 .ncm-security-container #email .icon { background-position: -50px -300px;}
 .ncm-security-container #mobile .icon { background-position: -100px -300px;}
@@ -983,13 +983,13 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-recommend-tag dt i { margin-left: 10px; margin-right: 4px;}
 .ncm-recommend-tag dd { min-height: 120px; margin-top: 10px; position: relative; z-index:1;}
 .ncm-recommend-tag dd .picture { width: 120px; height: 120px; position: absolute; z-index: 1; top:0px; left:0px;}
-.ncm-recommend-tag dd .arrow { background: url(../images/member/member_pics.png) no-repeat -360px 0; width: 11px; height: 21px; position: absolute; z-index:2; top: 20px; left: 120px;}
+.ncm-recommend-tag dd .arrow { background: url(/images/member_pics.png) no-repeat -360px 0; width: 11px; height: 21px; position: absolute; z-index:2; top: 20px; left: 120px;}
 .ncm-recommend-tag dd .content { background-color: #EEE; width: 800px; height: 100px; padding: 9px; border: solid 1px #CCC; border-radius: 5px;  position: absolute; z-index: 1; top:0px; left:130px;}
 .ncm-recommend-tag dd .content p { font-size: 14px; line-height: 20px; height: 20px; text-overflow: ellipsis; white-space: nowrap; width: 640px; }
 .ncm-recommend-tag dd .content .friends { width: auto; height: 70px; padding: 5px 0;}
 .ncm-recommend-tag dd .content .friends h5 { line-height: 20px; margin: 4px 0 6px 0; color: #777; }
 .ncm-recommend-tag dd .content .friends h5 strong { color: #C30; font-weight: normal; padding-right: 4px; padding-left: 4px;}
-.ncm-recommend-tag dd .content .friends p { font-size: 0; line-height: 0; background: url(../images/member/member_pics.png) scroll no-repeat;	text-indent: 999px; display: inline-block; width: 13px; height: 19px; margin: 10px 2px; overflow: hidden;}
+.ncm-recommend-tag dd .content .friends p { font-size: 0; line-height: 0; background: url(/images/member_pics.png) scroll no-repeat;	text-indent: 999px; display: inline-block; width: 13px; height: 19px; margin: 10px 2px; overflow: hidden;}
 .ncm-recommend-tag dd .content .friends .F-prev { background-position: -390px -580px;}
 .ncm-recommend-tag dd .content .friends .F-next { background-position: -410px -580px;}
 .ncm-recommend-tag dd .content .friends .F-prev:hover { background-position: -390px -600px;}
@@ -1014,7 +1014,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-friend-list .info { width: 155px; height: 60px; margin: 10px 0;}
 .ncm-friend-list .info dt { height: 20px; margin-bottom: 4px;}
 .ncm-friend-list .info dt a { font-size: 14px; color: #555; white-space: nowrap; text-overflow: ellipsis; display: inline-block; *display: inline/*IE7*/; max-width: 140px; height: 20px; overflow: hidden; *zoom: 1;}
-.ncm-friend-list .info dt i { background: url(../images/member/member_pics.png) no-repeat; vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 16px; height: 16px; margin-left: 8px;}
+.ncm-friend-list .info dt i { background: url(/images/member_pics.png) no-repeat; vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 16px; height: 16px; margin-left: 8px;}
 .ncm-friend-list .info dt i.male { background-position: -320px -40px;}
 .ncm-friend-list .info dt i.female { background-position: -340px -40px;}
 .ncm-friend-list .info dd { color: #999;}
@@ -1022,7 +1022,7 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-friend-list li:hover .info dd a { display: block; }
 .ncm-friend-list .follow { margin: 10px 0;}
 .ncm-friend-list .follow p { color: #999; margin: 5px 0 15px 0;}
-.ncm-friend-list .follow p i { background: url(../images/member/member_pics.png) no-repeat -365px -40px; vertical-align: middle; display: inline-block; width: 16px; height: 16px; margin-right: 4px;}
+.ncm-friend-list .follow p i { background: url(/images/member_pics.png) no-repeat -365px -40px; vertical-align: middle; display: inline-block; width: 16px; height: 16px; margin-right: 4px;}
 .ncm-friend-list .follow a {}
 .ncm-friend-list li dl dd.area { text-overflow: ellipsis; color: #999; margin-bottom: 5px; white-space: nowrap; overflow: hidden;}
 .ncm-friend-list li dl dd .checkitem { float:left; margin-top: 4px;}
@@ -1116,8 +1116,8 @@ i[class*="icon-"] { font-size: 14px; margin-right: 4px;}
 .ncm-bind .revise { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; height: 180px; *zoom: 1/*IE7*/;}
 .ncm-bind .relieve { width: 39%; text-align: center; border-right: dashed 1px #E7E7E7;}
 .ncm-bind .relieve .ico-qq,
-.ncm-bind .relieve .ico-sina { background: url(../images/member/shareicon/bind_qq.png) no-repeat 0 0; display: inline-block; *display: inline; width: 80px; height: 80px; margin: 10px auto 0 auto; *zoom: 1;}
-.ncm-bind .relieve .ico-sina { background: url(../images/member/shareicon/bind_sina.png) no-repeat 0 0; }
+.ncm-bind .relieve .ico-sina { background: url(/images/shareicon/bind_qq.png) no-repeat 0 0; display: inline-block; *display: inline; width: 80px; height: 80px; margin: 10px auto 0 auto; *zoom: 1;}
+.ncm-bind .relieve .ico-sina { background: url(/images/shareicon/bind_sina.png) no-repeat 0 0; }
 .ncm-bind .revise { width: 50%; margin: 0 5%;}
 .ncm-bind .revise dt { width: 25%;}
 .ncm-bind .revise dd { width: 74%;}

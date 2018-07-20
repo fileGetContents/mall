@@ -11,17 +11,18 @@
     <link href="/css/home_header.css" rel="stylesheet" type="text/css">
     @yield('css')
 </head>
+
 <body>
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 <div id="vToolbar" class="nc-appbar">
     <div class="nc-appbar-tabs" id="appBarTabs">
         <div class="user TA_delay" nctype="a-barUserInfo">
-            <div class="avatar"><img src="/js/default_user_portrait.gif"></div>
+            <div class="avatar"><img src="{{session('user_images','/images/04781087584534013.png')}}"></div>
             <p>我</p>
         </div>
         <div class="user-info" nctype="barUserInfo" style="display:none;"><i class="arrow"></i>
-            <div class="avatar"><img src="/js/default_user_portrait.gif">
+            <div class="avatar"><img src="{{session('user_images','/images/04781087584534013.png')}}">
                 <div class="frame"></div>
             </div>
             <dl>
@@ -60,7 +61,7 @@
         <a id="activator" href="javascript:void(0);" class="nc-appbar-hide TA"></a></div>
     <div class="nc-hidebar" id="ncHideBar">
         <div class="nc-hidebar-bg">
-            <div class="user-avatar"><img src="/js/default_user_portrait.gif"></div>
+            <div class="user-avatar"><img src="/images/default_user_portrait.gif"></div>
             <div class="frame"></div>
             <div class="show"></div>
         </div>
@@ -84,7 +85,7 @@
             <dl class="down_app">
                 <dt><em class="ico_tel"></em><a href="http://127.0.0.1/v4/wap">手机移动端</a><i></i></dt>
                 <dd>
-                    <div class="qrcode"><img src="/js/mb_app.png"></div>
+                    <div class="qrcode"><img src="/images/mb_app.png"></div>
                     <div class="hint">
                         <h4>扫描二维码</h4>
                         下载手机客户端
@@ -157,20 +158,20 @@
                 <dd>
                     <h4>扫描二维码<br>
                         关注商城微信号</h4>
-                    <img src="/js/04781087584534013.png"></dd>
+                    <img src="/images/04781087584534013.png"></dd>
             </dl>
         </div>
     </div>
 </div>
 <div class="wrapper" id="top-banner">
     <a href="javascript:void(0);" title="关闭"></a>
-    <a href="http://www.33hao.com/" target="_blank" title="好商城V3"><img style="width:1200px;height:90px" border="0" src="/js/04891676111561966.png" alt="好商城V3"></a>
+    <a href="http://www.33hao.com/" target="_blank" title="好商城V3"><img style="width:1200px;height:90px" border="0" src="/images/04891676111561966.png" alt="好商城V3"></a>
 </div>
 <div class="header-wrap">
     <header class="public-head-layout wrapper">
-        <h1 class="site-logo"><a href="http://127.0.0.1/v4"><img src="/js/logo.png" class="pngFix"></a></h1>
+        <h1 class="site-logo"><a href="http://127.0.0.1/v4"><img src="/images/logo.png" class="pngFix"></a></h1>
         <div class="site-ad">
-            <a href="http://127.0.0.1/v4/shop/index.php?act=member_information&amp;op=member" title="顶部logo边广告"><img style="width:100px;height:70px" border="0" src="/js/05048168915006375.gif" alt=""></a>
+            <a href="http://127.0.0.1/v4/shop/index.php?act=member_information&amp;op=member" title="顶部logo边广告"><img style="width:100px;height:70px" border="0" src="/images/05048168915006375.gif" alt=""></a>
         </div>
         <div class="head-search-bar">
             <div id="search">
@@ -244,7 +245,7 @@
                             <span style="float:right;"><a href="http://127.0.0.1/v4/shop/index.php?act=member_goodsbrowse&amp;op=list">全部浏览历史</a></span>
                         </div>
                         <ul>
-                            <li class="no-goods"><img class="loading" src="/js/loading.gif"></li>
+                            <li class="no-goods"><img class="loading" src="/images/loading.gif"></li>
                         </ul>
                     </div>
                 </dd>
@@ -279,7 +280,7 @@
                     <li cat_id="256" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-256.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-256.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=256">数码办公</a>
                             </h4>
                         </div>
@@ -515,7 +516,7 @@
                     <li cat_id="2" class="even">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-2.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-2.jpg"></span>
                             <h4>
                                 <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=2">礼品箱包</a>
                             </h4>
@@ -622,7 +623,7 @@
                     <li cat_id="3" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-3.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-3.jpg"></span>
                             <h4>
                                 <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=3">家居家装</a>
                             </h4>
@@ -745,7 +746,7 @@
                     <li cat_id="1" class="even">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-1.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-1.jpg"></span>
                             <h4>
                                 <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=1">服饰鞋帽</a>
                             </h4>
@@ -976,7 +977,7 @@
                     <li cat_id="308" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-308.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-308.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=308">家用电器</a>
                             </h4>
                         </div>
@@ -1115,7 +1116,7 @@
                     <li cat_id="470" class="even">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-470.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-470.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=470">个护化妆</a>
                             </h4>
                         </div>
@@ -1248,7 +1249,7 @@
                     <li cat_id="593" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-593.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-593.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=593">食品饮料</a>
                             </h4>
                         </div>
@@ -1414,7 +1415,7 @@
                     <li cat_id="888" class="even">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-888.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-888.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=888">厨房餐饮</a>
                             </h4>
                         </div>
@@ -1526,7 +1527,7 @@
                     <li cat_id="530" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-530.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-530.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=530">珠宝手表</a>
                             </h4>
                         </div>
@@ -1685,7 +1686,7 @@
                     <li cat_id="662" class="even">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-662.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-662.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=662">运动健康</a>
                             </h4>
                         </div>
@@ -1834,7 +1835,7 @@
                     <li cat_id="730" class="odd">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-730.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-730.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=730">汽车用品</a>
                             </h4>
                         </div>
@@ -2013,7 +2014,7 @@
                     <li cat_id="825" class="even" style="display:none;">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-825.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-825.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=825">玩具乐器</a>
                             </h4>
                         </div>
@@ -2189,7 +2190,7 @@
                     <li cat_id="959" class="odd" style="display:none;">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-959.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-959.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=959">母婴用品</a>
                             </h4>
                         </div>
@@ -2345,7 +2346,7 @@
                     <li cat_id="1037" class="even" style="display:none;">
                         <div class="class">
                             <span class="arrow"></span>
-                            <span class="ico"><img src="/js/category-pic-1037.jpg"></span>
+                            <span class="ico"><img src="/images/category-pic-1037.jpg"></span>
                             <h4><a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=1037">虚拟充值</a>
                             </h4>
                         </div>
@@ -2554,7 +2555,7 @@
                         <span class="ic mail">abc@33hao.com</span>
                         <div class="attention cleafix">
                             <div class="weixin f-l">
-                                <img src="/js/04781087584534013.png" class="f-l jImg img-error">
+                                <img src="/images/04781087584534013.png" class="f-l jImg img-error">
                                 <p class="f-l">
                                     <span>扫一扫</span>
                                     <span>关注我们</span>

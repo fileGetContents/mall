@@ -23,9 +23,9 @@ class UserController extends Controller
         return view('Web.login');
     }
 
-    public function test()
+    public function test(Request $request)
     {
-        return view('Public.header');
+        return view('Public.PersonalCenter');
     }
 
     public function geturldata($url)

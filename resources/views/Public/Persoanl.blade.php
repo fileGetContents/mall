@@ -1,6 +1,4 @@
 @extends('Public.header')
-
-
 @section('body')
     <div class="nch-breadcrumb-layout">
         <div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
@@ -172,7 +170,7 @@
                 </div>
             </div>
             <div class="ncm-user-info">
-                <div class="avatar"><img src="/js/default_user_portrait.gif">
+                <div class="avatar"><img src="/images/default_user_portrait.gif">
                     <div class="frame"></div>
                 </div>
                 <div class="handle">

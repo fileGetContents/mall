@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Methods\Captcha;
+use Illuminate\Support\Facades\Input;
+use  Intervention\Image\Facades\Image;
 
 class ApiController extends Controller
 {
@@ -31,8 +32,19 @@ class ApiController extends Controller
         }
     }
 
-    public static function test()
+    /**
+     * 文件上传
+     * @return 文件
+     */
+    public function imageUpload()
     {
-
+        $file = base_path('public/upload/') . date('Y-m-d');
+        if (!is_dir($file)) {
+            mkdir($file, 0777, true);
+        }
+        $src = $file . '/' . rand(10000, 99999) . md5($_SERVER['REQUEST_TIME']) . '.png';
+        $res = Image::make(Input::file('file'))->resize(72, 72)->save($src);
+        echo asset('/upload/' . date('Y-m-d') . '/' . $res->basename);
     }
+
 }

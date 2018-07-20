@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Rules\ChinaName;
+use App\Rules\IdCard;
 use App\Rules\Mobile;
 use App\Rules\Password;
 use Illuminate\Http\Request;
@@ -91,6 +93,31 @@ class UserController extends Controller
             return static::success();
         }
         return static::error('登陆失败');
+    }
+
+    /**
+     * 更新基础信息
+     * @param Request $request
+     * @return string|更新基础信息
+     */
+    public function updateBaseInfo(Request $request)
+    {
+        $this->validate($request, [
+            'nickName' => ['required'],
+            'name' => ['required'],
+            'idCard' => ['required']
+        ]);
+        $bool = User::where(['user_id' => session('user_id', 2)])->update([
+            'user_name' => $request->input('name'),
+            'user_idcard' => $request->input('idCard'),
+            'user_nickname' => $request->input('name'),
+            'user_images' => $request->input('header')
+        ]);
+        if ($bool) {
+            return static::success();
+        } else {
+            return static::error();
+        }
     }
 
 }

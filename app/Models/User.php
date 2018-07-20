@@ -12,9 +12,9 @@ class User extends Model
     protected $table = 'mall_users';
     protected $primaryKey = 'user_id';
     protected $dates = ['deleted_at'];
-    protected $fillable = ['user_nickname', 'user_password', 'user_mobile', 'user_time'];
+    protected $fillable = ['user_nickname', 'user_password', 'user_mobile', 'user_time', 'user_name', 'user_idCard', 'user_images'];
     public $timestamps = false;
-    public static $filed = ['user_nickname', 'user_password', 'user_mobile', 'user_time', 'user_id'];
+    public static $filed = ['user_nickname', 'user_password', 'user_mobile', 'user_time', 'user_id', 'user_name', 'user_idcard', 'user_images'];
 
     /**
      * 登陆日志
@@ -29,5 +29,10 @@ class User extends Model
             Storage::makeDirectory($file);
         }
         Storage::append($file . '/Login.log', $mobile . '在IP地址为' . $ip . '登陆');
+    }
+
+    public function getUserIdcardAttribute($value)
+    {
+        return substr($value, 0, 4) . '******' . substr($value, -4, 4);
     }
 }

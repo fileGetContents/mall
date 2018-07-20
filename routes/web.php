@@ -16,26 +16,36 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('login', 'UserController@login');      // 用户登录
         Route::get('test', 'UserController@test');
     });
+
     Route::group(['prefix' => 'personal'], function () {
         Route::get('baseInfo', 'PersonalController@baseInfo'); // 用户基础信息
     });
+
+    Route::group(['prefix' => 'good'], function () {
+        Route::get('detailed/{id}', 'GoodController@detailed');
+
+    });
+
 });
 
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::any('getCaptcha', 'ApiController@getCaptcha'); // 获取图形验证码
     Route::post('captchaValidation', 'ApiController@captchaValidation'); // 验证图形验证码
     Route::get('test', 'ApiController@test');
+    Route::post('imageUpload', 'ApiController@imageUpload'); // 上传图片
 
     Route::group(['prefix' => 'user'], function () {
         Route::post('existMobile', 'UserController@existMobile'); // 检测是否存在电话号码
         Route::post('newUser', 'UserController@newUser'); // 创建新的用户
         Route::post('loginByPassword', 'UserController@loginByPassword'); // 用密码登录
         Route::post('loginBySMSCode', 'UserController@loginBySMSCode'); // 用户短信登陆
+        Route::post('updateBaseInfo', 'UserController@updateBaseInfo'); // 更新基础信息
     });
 
     Route::group(['prefix' => 'interface'], function () {
         Route::post('seedNoteValidate', 'InterfaceController@seedNoteValidate'); // 发送短信验证码
         Route::post('noteValidate', 'InterfaceController@noteValidate');         //  验证短信验证码
+        Route::any('idCard', 'InterfaceController@idCard');                      // 接口查询
     });
 });
 
