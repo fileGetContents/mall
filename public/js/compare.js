@@ -71,7 +71,6 @@ function initCompare(){
 			var data_str = '';
 			eval('data_str =' + $(this).attr('data-param'));
 			var gid = data_str.gid;
-
 			if($(this).hasClass('selected')){
 				$(this).removeClass('selected');
 				//删除该对比商品

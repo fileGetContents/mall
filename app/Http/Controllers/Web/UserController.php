@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Methods\Operation;
+use App\Models\ClassGood;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,7 @@ class UserController extends Controller
 
     public function test(Request $request)
     {
-        return view('Public.PersonalCenter');
+        //return view('Public.PersonalCenter');
     }
 
     public function geturldata($url)

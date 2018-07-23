@@ -11,7 +11,6 @@
     <link href="/css/home_header.css" rel="stylesheet" type="text/css">
     @yield('css')
 </head>
-
 <body>
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
@@ -303,8 +302,7 @@
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=269">手机存储卡</a>
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=270">手机保护套</a>
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=271">车载配件</a>
-                                        <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=272">iPhone
-                                            配件</a>
+                                        <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=272">iPhone配件</a>
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=273">创意配件</a>
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=274">便携/无线音响</a>
                                         <a href="http://127.0.0.1/v4/shop/index.php?act=search&amp;op=index&amp;cate_id=275">手机饰品</a>

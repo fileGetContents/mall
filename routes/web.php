@@ -33,6 +33,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::post('captchaValidation', 'ApiController@captchaValidation'); // 验证图形验证码
     Route::get('test', 'ApiController@test');
     Route::post('imageUpload', 'ApiController@imageUpload'); // 上传图片
+    Route::get('getAllMenu', 'ApiController@getAllMenu');
 
     Route::group(['prefix' => 'user'], function () {
         Route::post('existMobile', 'UserController@existMobile'); // 检测是否存在电话号码

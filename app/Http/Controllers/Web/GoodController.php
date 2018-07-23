@@ -7,9 +7,10 @@ use App\Http\Controllers\Controller;
 
 class GoodController extends Controller
 {
+
     public function detailed(Request $request)
     {
-        return view('Public.good');
+        return view('Web.GoodDetailed');
     }
 
 }

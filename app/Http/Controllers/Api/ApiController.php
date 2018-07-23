@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Web\GoodController;
+use App\Models\ClassGood;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -47,4 +49,11 @@ class ApiController extends Controller
         echo asset('/upload/' . date('Y-m-d') . '/' . $res->basename);
     }
 
+    /**
+     * 获取目录
+     */
+    public function getAllMenu()
+    {
+        return ClassGood::getAllMenu();
+    }
 }

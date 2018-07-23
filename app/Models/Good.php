@@ -22,4 +22,5 @@ class Good extends Model
     {
         return serialize($value);
     }
+
 }
