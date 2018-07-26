@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Web\GoodController;
 use App\Models\ClassGood;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,13 +46,5 @@ class ApiController extends Controller
         $src = $file . '/' . rand(10000, 99999) . md5($_SERVER['REQUEST_TIME']) . '.png';
         $res = Image::make(Input::file('file'))->resize(72, 72)->save($src);
         echo asset('/upload/' . date('Y-m-d') . '/' . $res->basename);
-    }
-
-    /**
-     * 获取目录
-     */
-    public function getAllMenu()
-    {
-        return ClassGood::getAllMenu();
     }
 }

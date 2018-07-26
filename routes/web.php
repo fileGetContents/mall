@@ -18,12 +18,12 @@ Route::group(['namespace' => 'Web'], function () {
     });
 
     Route::group(['prefix' => 'personal'], function () {
-        Route::get('baseInfo', 'PersonalController@baseInfo'); // 用户基础信息
+        Route::get('baseInfo', 'PersonalController@baseInfo');    // 用户基础信息
     });
 
     Route::group(['prefix' => 'good'], function () {
-        Route::get('detailed/{id}', 'GoodController@detailed');
-
+        Route::get('detailed/{id}', 'GoodController@detailed');  // 商品详情
+        Route::get('lists', 'GoodController@lists');            // 商品列表
     });
 
 });
@@ -33,7 +33,6 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
     Route::post('captchaValidation', 'ApiController@captchaValidation'); // 验证图形验证码
     Route::get('test', 'ApiController@test');
     Route::post('imageUpload', 'ApiController@imageUpload'); // 上传图片
-    Route::get('getAllMenu', 'ApiController@getAllMenu');
 
     Route::group(['prefix' => 'user'], function () {
         Route::post('existMobile', 'UserController@existMobile'); // 检测是否存在电话号码

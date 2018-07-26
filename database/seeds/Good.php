@@ -11,7 +11,7 @@ class Good extends Seeder
      */
     public function run()
     {
-        foreach (range(200, 201) as $value) {
+        foreach (range(1, 201) as $value) {
             goods::create([
                 'good_name' => str_random(10),
                 'good_image' => asset('images/dt-if1-l-tuda5.gif'),
@@ -22,7 +22,12 @@ class Good extends Seeder
                 'good_oriprice' => rand(50, 70),
                 'good_time' => $_SERVER['REQUEST_TIME'],
                 'store_id' => rand(1, 5),
-                'good_info' => str_random(500)
+                'good_info' => str_random(500),
+                'good_score' => '5.0',
+                'good_introduce' => '介绍',
+                'class_id' => '23',
+                'good_sales' => 100,
+                'good_comment' => 200
             ]);
         }
     }

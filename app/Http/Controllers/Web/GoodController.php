@@ -13,4 +13,10 @@ class GoodController extends Controller
         return view('Web.GoodDetailed');
     }
 
+    public function lists(Request $request)
+    {
+        return view('Web.GoodLists');
+    }
+
+
 }
