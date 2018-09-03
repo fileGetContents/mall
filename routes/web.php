@@ -23,7 +23,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::group(['prefix' => 'good'], function () {
         Route::get('detailed/{id}', 'GoodController@detailed');  // 商品详情
-        Route::get('lists', 'GoodController@lists');            // 商品列表
+        Route::any('lists', 'GoodController@lists');            // 商品列表
     });
 
 });
@@ -47,6 +47,11 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         Route::post('noteValidate', 'InterfaceController@noteValidate');         //  验证短信验证码
         Route::any('idCard', 'InterfaceController@idCard');                      // 接口查询
     });
+
+    Route::group(['prefix' => 'good'], function () {
+        Route::any('lists', 'GoodController@goodList');            // 商品列表
+    });
+
 });
 
 

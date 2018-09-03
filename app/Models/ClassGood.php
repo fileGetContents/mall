@@ -16,6 +16,9 @@ class ClassGood extends Model
 
     /**
      *  获取栏目
+     * @return 获取分类
+     *
+     *
      */
     public static function getAllMenu()
     {
@@ -59,4 +62,30 @@ class ClassGood extends Model
         return $res;
     }
 
+    /**
+     * @param $id
+     * @return 获取位置信息
+     */
+    public static function positionById($id)
+    {
+        $pos = static::select(static::$filed)->find($id);
+        switch ($pos->class_depth) {
+            case 0:
+                return [$pos->class_id => $pos->class_name];
+                break;
+            case 1:
+                $prv = static::select(['class_name', 'class_id'])->find($pos->class_prv);
+                return [$pos->class_id => $prv->class_name, $prv->id => $pos->class_name];
+                break;
+            case 2:
+                $two = static::select(['class_name', 'class_prv', 'class_id'])->find($pos->class_prv);
+                $one = static::select(['class_name', 'class_id'])->find($two->class_prv);
+                return [
+                    $one->class_id => $one->class_name,
+                    $two->class_id => $two->class_name,
+                    $pos->class_id => $pos->class_name
+                ];
+                break;
+        }
+    }
 }

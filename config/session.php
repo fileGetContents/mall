@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => 'redis',  // env('SESSION_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
